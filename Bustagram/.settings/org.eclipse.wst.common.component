@@ -3,7 +3,8 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <property name="context-root" value="Bustagram"/>
-        <property name="java-output-path" value="/Bustagram/build/classes"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <property name="java-output-path" value="/Bustagram/target/classes"/>
+        <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>
