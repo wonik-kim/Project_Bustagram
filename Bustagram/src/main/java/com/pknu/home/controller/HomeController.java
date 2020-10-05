@@ -11,4 +11,8 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping("/ms")
+	public String musicStation() {
+		return "music_station";
+	}
 }

@@ -8,44 +8,80 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 
+function MusicPlayTime(myaudio, currentTimeDiv, endTimeDiv, endTimeMin, endTimeSec, musicBar ){
+	
+	// 현재 재생시간 체크 
+	
+	
+	
+	musicBar.value = parseInt(myaudio.currentTime);
+	
+	endTimeDiv.innerHTML = '<p>' +  endTimeMin + ':' + endTimeSec + '<p>';
+	 
+	console.log("running!")
+	
+	console.log(musicBar.value);
+	
+}
+
+
+
 $(document).ready(function(){
 	 
-	 var myaudio = new Audio('/music/Splash.mp3');
+	 var myaudio = document.getElementById('myaudio');
 	 
-	 var cTimeDiv = document.getElementById('cTimeDiv');
+	 // 전체 시간 div
+	 var TimeDiv = document.getElementById('TimeDiv');
 	 
-	 var currentTime = 0;
-	 var endTime = 0;
+	 // 현재 시간 div
+	 var currentTimeDiv = document.getElementById('currentTimeDiv');
+	 
+	 // 종료 시간 div 
+	 var endTimeDiv = document.getElementById('endTimeDiv');
+	 
+	 // 시간 체크 
+	 var checkTime = document.getElementById('checkTime');
+	 
+	 // 뮤직바 
+	 var musicBar = document.getElementById('musicBar');
+	 
+	 
+	 var TotEndTime = 0;
+	 var endTimeMin = 0;
+	 var endTimeSec = 0;
 	 var bufferdTime = 0;
 	 
+	 // 음악 실행 및 중지를 위한 ID
+	 var timerId = null;
 	 
+	 
+	 // 음악 로드되었을때 
 	 myaudio.addEventListener("loadedmetadata", e => {
-		 endTime = e.target.duration
-
+		 TotEndTime = myaudio.duration;
+		 endTimeMin = parseInt((TotEndTime%3600)/60);
+		 endTimeSec = parseInt(TotEndTime%60);
+		 
+		 musicBar.max = Math.ceil(TotEndTime);
+		 
 	 }, false)
 	 
+	 
+	 
+	 
 	 stopMusic.onclick = function(){
-		 myaudio.pause();
-		 
-		 
-		 
-		 
-		 
+		 myaudio.pause();	 
 	 }
 	 
-	 playMusic.onclick = function(){
-		 
+	 playMusic.onclick = function(){	 
 		 myaudio.play();
+		 
+		 var num = 0;
+		 
+		setInterval(MusicPlayTime(myaudio, currentTimeDiv, endTimeDiv, endTimeMin, endTimeSec, musicBar ), 1000);
+		 
 		
-		 
-		 
-		 
 	 }
 
-	 cTimeBtn.onclick = function(){
-		 cTimeDiv.innerHTML = '<p>'+ 'endTime = '     + endTime +'<p>';
-	 }
-	 
 	 
 });
 
@@ -95,24 +131,25 @@ $(document).ready(function(){
  <!-- 게이지 바 부터  -->
 
 	
-  <input type = "range" min = "1" max = "100" value = "1">
-
+  <input id = "musicBar" type = "range" min = "1" max = "100" value = "1">
+  <div id = "TimeDiv">
+  	<div id = "currentTimeDiv"></div>
+	<div id = "endTimeDiv"></div>
+  </div>
 
 <!-- 오디오 테그 테스트 -->
 
-<audio controls="controls">
+<audio id = "myaudio" >
   <source src="/music/Splash.ogg" type="audio/ogg" />
   <source src="/music/Splash.mp3" type="audio/mpeg" />
 Your browser does not support the audio element.
 </audio>
 
-<div id = "cTimeDiv">
 
-</div>
 
 <button id ="playMusic" type="button">음악 재생!</button>
 <button id ="stopMusic" type="button">음악 중지!</button>
-<button id ="cTimeBtn" type="button">현재 음악 시간 확인</button>
+
 
 
 
