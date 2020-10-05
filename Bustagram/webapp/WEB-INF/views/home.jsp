@@ -12,7 +12,8 @@
 	<%@ include file="/WEB-INF/include/top.jsp"%>
 
 	<h1>테스트 home.jsp</h1>
-
+	ddd
+asdfasdfasdfasdfasdfsdf
 	<%@ include file="/WEB-INF/include/bottom.jsp"%>
 </body>
 </html>
