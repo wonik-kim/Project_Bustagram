@@ -16,14 +16,9 @@ import com.pknu.main.service.MainService;
 @Controller
 public class MainController {
 	
-	private MainService mainService;
+	
 
 	
-	@RequestMapping(value="/")
-	public String Main() {
-		
-		return "Main";
-		
-	}
+	
 
 }
