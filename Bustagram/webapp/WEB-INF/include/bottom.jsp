@@ -10,35 +10,33 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 	<style>
-		#divLogo { display:block; float:left; }
-		#formLogin { padding:60px 50px 0 0; display:block; float:right; height:150px; }
-		.wrapTop, nav { clear:both; }
+		nav { clear:both; }
 		
-		#tblLogin { font-size:12px; }
-		#tblLogin > tr > td { text-align:center; padding:3px; }
+		.navbar-nav { width: 100%;}
+		#footer-menu { width:100%; text-align:left; margin:10px 30px; }
 		
-		.navbar-nav { width: 100%; }
-		.navbar-item { width: 33%; text-align:center; }
-		.nav-link { color:black; }
-		.nav-link:hover { color:black; font-weight:bold; }
-		
-		input[type=submit] { display:block; width:100%; height:100%; padding:15px 10px; }
-		.aLogin { color:black; }
-		.aLogin:hover { color:black; text-decoration:none; font-weight:bold; }
+		p { font-weight:bold; font-size:20px; }
 	</style>
 </head>
 <body style="width:90%; margin:0 auto;">
-	<div style="width:90%; height:100px;"></div>
 	<nav class="navbar navbar-expand-sm" style="border-top:3px solid #F7819F;">
 		<ul class="navbar-nav">
-			<li class="navbar-item">
-				사업자 정보
+			<li class="navbar-item" id="footer-menu">
+				<p>사업자 정보</p>
+				사업자번호<br>
+				법인명<br>
+				대표자<br>
+				주소<br>
 			</li>
-			<li class="navbar-item">
-				<a class="nav-link" href="#">연락처</a>
+			<li class="navbar-item" id="footer-menu">
+				<p>연락처</p>
+				전화<br>
+				이메일<br>
+				팩스<br>
 			</li>
-			<li class="navbar-item">
-				<a class="nav-link" href="#">고객센터</a>
+			<li class="navbar-item" id="footer-menu">
+				<p>고객센터</p>
+				
 			</li>
 		</ul>
 	</nav>
