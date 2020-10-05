@@ -11,4 +11,18 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping("login")
+	public String login() {
+		return "login";
+	}
+	
+	@RequestMapping("find_id")
+	public String find_id() {
+		return "find_id";
+	}
+	
+	@RequestMapping("find_pwd")
+	public String find_pwd() {
+		return "find_pwd";
+	}
 }
