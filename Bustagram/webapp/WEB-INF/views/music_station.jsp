@@ -77,7 +77,7 @@ $(document).ready(function(){
 		 
 		 var num = 0;
 		 
-		setInterval(MusicPlayTime(myaudio, currentTimeDiv, endTimeDiv, endTimeMin, endTimeSec, musicBar ), 1000);
+		 timerId = setInterval(function(){MusicPlayTime(myaudio, currentTimeDiv, endTimeDiv, endTimeMin, endTimeSec, musicBar );}, 1000);
 		 
 		
 	 }
