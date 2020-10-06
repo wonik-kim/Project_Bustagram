@@ -35,11 +35,11 @@
 		<form action="/" method="POST" id="formLogin">
 			<table id="tblLogin">
 				<tr>
-					<td><a class="aLogin" href="#" >회원가입</a>&nbsp;&nbsp;&nbsp;</td>
+					<td><button><a class="aLogin" href="#" >회원가입</a></button></td>
 				</tr>
 				<tr>
 				
-					<td rowspan="2"><a href="login">로그인</a></td>
+					<td rowspan="2"><button><a href="login">로그인</a></button></td>
 				</tr>
 
 			</table>
