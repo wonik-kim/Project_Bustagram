@@ -148,7 +148,7 @@ $(document).ready(function(){
  <!-- 게이지 바 부터  -->
 
 	
-  <input id = "musicBar" type = "range" min = "1" max = "100" value = "1" onchange="tt()">
+  <input id = "musicBar" type = "range" min = "1" max = "100" value = "1" >
   <div id = "TimeDiv">
   	<div id = "currentTimeDiv"></div>
 	<div id = "endTimeDiv"></div>
@@ -157,8 +157,8 @@ $(document).ready(function(){
 <!-- 오디오 테그 테스트 -->
 
 <audio id = "myaudio" >
-  <source src="/music/Splash.ogg" type="audio/ogg" />
-  <source src="/music/Splash.mp3" type="audio/mpeg" />
+  <source src="/music/iu.ogg" type="audio/ogg" />
+  <source src="/music/iu.mp3" type="audio/mpeg" />
 Your browser does not support the audio element.
 </audio>
 
