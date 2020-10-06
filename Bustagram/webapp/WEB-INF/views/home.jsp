@@ -11,7 +11,7 @@
 <body>
 	<%@ include file="/WEB-INF/include/top.jsp"%>
 
-	<h1>테스트 home.jsp</h1>
+	<div style="width:100%; height:700px;"></div>
 
 	<%@ include file="/WEB-INF/include/bottom.jsp"%>
 </body>
