@@ -11,10 +11,13 @@
 function MusicPlayTime(myaudio, currentTimeDiv, endTimeDiv, endTimeMin, endTimeSec, musicBar ){
 	
 	// 현재 재생시간 체크 
-	
-	
+
+	var currentTimeMin = parseInt((myaudio.currentTime%3600)/60);
+	var currentTimeSec = parseInt(myaudio.currentTime%60);
 	
 	musicBar.value = parseInt(myaudio.currentTime);
+	
+	currentTimeDiv.innerHTML = '<p>' +  currentTimeMin + ':' + currentTimeSec + '<p>';
 	
 	endTimeDiv.innerHTML = '<p>' +  endTimeMin + ':' + endTimeSec + '<p>';
 	 
@@ -22,7 +25,16 @@ function MusicPlayTime(myaudio, currentTimeDiv, endTimeDiv, endTimeMin, endTimeS
 	
 	console.log(musicBar.value);
 	
+	musicBar.addEventListener('input', function(){
+		
+		myaudio.currentTime = musicBar.value;
+	}, false)
+	
+	
+	
 }
+
+
 
 
 
@@ -69,7 +81,10 @@ $(document).ready(function(){
 	 
 	 
 	 stopMusic.onclick = function(){
-		 myaudio.pause();	 
+		 myaudio.pause();	
+		 
+		 clearInterval(timerId);
+		 
 	 }
 	 
 	 playMusic.onclick = function(){	 
@@ -82,6 +97,8 @@ $(document).ready(function(){
 		
 	 }
 
+	 
+	
 	 
 });
 
@@ -131,7 +148,7 @@ $(document).ready(function(){
  <!-- 게이지 바 부터  -->
 
 	
-  <input id = "musicBar" type = "range" min = "1" max = "100" value = "1">
+  <input id = "musicBar" type = "range" min = "1" max = "100" value = "1" onchange="tt()">
   <div id = "TimeDiv">
   	<div id = "currentTimeDiv"></div>
 	<div id = "endTimeDiv"></div>
