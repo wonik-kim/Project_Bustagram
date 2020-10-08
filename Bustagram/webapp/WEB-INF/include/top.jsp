@@ -30,7 +30,7 @@
 <body style="width:90%; margin:0 auto;">
 	<div class="wrapTop">
 		<div id="divLogo" style="width:65%; height:150px;">
-			<a href="/"><img style="margin:10px 50px;" src="/img/bustagram_logo_kor.png" alt="로고"/></a>
+			<a href="/"><img style="margin:10px 50px;" src="img/bustagram_logo_kor.png" alt="로고"/></a>
 		</div>
 		<form action="/" method="POST" id="formLogin">
 			<table id="tblLogin">

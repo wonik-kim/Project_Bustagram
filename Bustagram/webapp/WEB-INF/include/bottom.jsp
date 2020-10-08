@@ -27,7 +27,7 @@
 		.aLogin:hover { color:black; text-decoration:none; font-weight:bold; }
 	</style>
 </head>
-<body style="width:90%; margin:0 auto;">
+<body style="width:90%; margin-bottom:0;">
 	<div style="width:90%; height:100px;"></div>
 	<nav class="navbar navbar-expand-sm" style="border-top:3px solid #F7819F;">
 		<ul class="navbar-nav">
