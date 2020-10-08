@@ -14,13 +14,25 @@ body {font-family: 'Cute Font', cursive;}
 
 </head>
 <body>
-
+	<div>
 	<%@ include file="/WEB-INF/include/top.jsp"%>
-	<div style = "font-size: 50px; text-align: center;">진행 예정 공연</div>
+	</div>
+	<div style = "font-size: 50px; text-align: left;">진행 예정 공연</div>
 	<%@ include file="/WEB-INF/include/concert.jsp"%>
-	<div style = "font-size: 50px; text-align: center;">이달의 떠오르는 버스커</div>
+	<div style = "font-size: 50px; text-align: left;">이달의 떠오르는 버스커</div>
 	<%@ include file="/WEB-INF/include/busker.jsp"%>
+	<div style="width: 50%; float: left;">top10 차트
+		<div>
+		<%@ include file = "/WEB-INF/include/chart.jsp" %>
+		</div>
+	</div>
+	<div style="width: 50%; float: right;">게시판
+		<div>
+		<%@ include file = "/WEB-INF/include/notice.jsp" %>
+		</div>
+	</div>
+	<div>
 	<%@ include file="/WEB-INF/include/bottom.jsp"%>
-	
+	</div>
 </body>
 </html>

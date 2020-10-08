@@ -38,23 +38,44 @@
 		<div class="swiper-slide">
 			<div>
 				<img src="img/busker1.jpg">
-				<br/>서효성
+				<br>발라드
+				<br>서효성
 			</div>
 		</div>
 
 		<div class="swiper-slide">
 			<div>
 				<img src="img/busker2.jpg">
-				<br/>적재
+				<br>포크송
+				<br>적재
 			</div>
 		</div>
 		
 		<div class="swiper-slide">
 			<div>
 				<img src="img/busker3.jpg">
-				<br/>스탠딩에그
+				<br>발라드
+				<br>스탠딩에그
 			</div>
 		</div>
+		
+		<div class="swiper-slide">
+			<div>
+				<img src="img/busker4.jpg">
+				<br>시티팝
+				<br>유키카
+			</div>
+		</div>
+		
+		<div class="swiper-slide">
+			<div>
+				<img src="img/busker5.jpg">
+				<br>락
+				<br>조정치와 아이들
+			</div>
+		</div>
+		
+		
 		
 	</div>
 
@@ -69,9 +90,9 @@
 
 new Swiper('.swiper-container', {
 
-	slidesPerView : 3, // 동시에 보여줄 슬라이드 갯수
-	spaceBetween : 30, // 슬라이드간 간격
-	slidesPerGroup : 3, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+	slidesPerView : 5, // 동시에 보여줄 슬라이드 갯수
+	spaceBetween : 10, // 슬라이드간 간격
+	slidesPerGroup : 5, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
 
 	// 그룹수가 맞지 않을 경우 빈칸으로 메우기
 	// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
