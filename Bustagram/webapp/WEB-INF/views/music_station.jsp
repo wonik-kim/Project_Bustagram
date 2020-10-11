@@ -165,8 +165,8 @@ $(document).ready(function(){
 <!-- 오디오 테그 테스트 -->
 
 <audio id = "myaudio" >
-  <source src="/music/iu.ogg" type="audio/ogg" />
-  <source src="/music/iu.mp3" type="audio/mpeg" />
+  <source src="/music/북쪽계단.ogg" type="audio/ogg" />
+  <source src="/music/북쪽계단.mp3" type="audio/mpeg" />
 Your browser does not support the audio element.
 </audio>
 
