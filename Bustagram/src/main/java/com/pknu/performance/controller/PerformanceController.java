@@ -18,8 +18,8 @@ public class PerformanceController {
 	@Autowired
 	private PerformanceService performanceService;
 
-	@RequestMapping("/schedule")
-	public ModelAndView schedule(@RequestParam HashMap<String, Object> map) {
+	@RequestMapping("/Schedule")
+	public ModelAndView schedule_sido(@RequestParam HashMap<String, Object> map) {
 		List<PerformanceVo> scheduleRegion = performanceService.scheduleRegion(map);
 		
 		ModelAndView mv = new ModelAndView();
@@ -28,5 +28,17 @@ public class PerformanceController {
 		
 		return mv;
 	}
+	
+	@RequestMapping("/Schedule/Gugun")
+	public ModelAndView schedule_gugun(@RequestParam HashMap<String, Object> map) {
+		List<PerformanceVo> scheduleRegionGugun = performanceService.scheduleRegionGugun(map);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("scheduleRegionGugun", scheduleRegionGugun);
+		
+		return mv;
+	}
+	
+	
 
 }

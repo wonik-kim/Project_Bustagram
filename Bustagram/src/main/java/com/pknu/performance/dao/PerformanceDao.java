@@ -9,4 +9,6 @@ public interface PerformanceDao {
 
 	List<PerformanceVo> scheduleRegion(HashMap<String, Object> map);
 
+	List<PerformanceVo> scheduleRegionGugun(HashMap<String, Object> map);
+
 }

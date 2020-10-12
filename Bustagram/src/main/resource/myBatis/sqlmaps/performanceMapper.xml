@@ -3,10 +3,16 @@
 
 <mapper namespace="Performance">
 	<resultMap id="regionList" type="com.pknu.performance.vo.PerformanceVo">
+		<result property="region_id"  column="REGION_ID"  javaType="string" />
 		<result property="region_val" column="REGION_VAL" javaType="string" />
 	</resultMap>
 
 	<select id="Region" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
 		{ CALL PKG_SCHEDULE.PROC_GET_SIDO(#{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
+	</select>
+	
+	<select id="RegionGugun" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
+		{ CALL PKG_SCHEDULE.PROC_GET_GUGUN(  #{ region_id, mode=IN,  jdbcType=VARCHAR }
+										   , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
 	</select>
 </mapper>

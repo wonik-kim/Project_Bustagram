@@ -15,6 +15,11 @@
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script>
+		$('#sido').on('click', 'li', function() {
+			conlole.log($(this).attr("value"));
+		});
+	</script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/include/top.jsp"%>
@@ -41,32 +46,32 @@
 	</script>
 
 	<div style="width:100%; height:400px; background-color:lavender; margin:20px 0;">
-		<div style="float:left; text-align:center; width:15%; height:100%; background-color:mediumpurple">
-			<ul class="easyui-datalist" title="지역 (시도)" style="width:100%; height:100%">
-				<c:forEach var="genreList" items="${ scheduleRegion }">
-					<li value="${ scheduleRegion.region_val }">${ scheduleRegion.region_val }</li>
+		<div style="float:left; text-align:center; width:15%; height:100%;">
+			<ul id="sido" class="easyui-datalist" title="지역 (시도)" style="width:100%; height:100%;">
+				<c:forEach var="scheduleRegion" items="${ scheduleRegion }">
+					<li value="${ scheduleRegion.region_id }">${ scheduleRegion.region_val }</li>
 				</c:forEach>
 			</ul>
 		</div>
-		<div style="float: left; text-align:center; width: 15%; height: 100%;">
-			<ul class="easyui-datalist" title="지역 (구군)" style="width:100%; height:100%">
-				<li value="AL">Alabama</li>
+		<div style="float:left; text-align:center; width:15%; height:100%;">
+			<ul id="gugun" class="easyui-datalist" title="지역 (구군)" style="width:100%; height:100%;">
+
 			</ul>
 		</div>
-		<div style="float: left; text-align:center; width: 15%; height: 100%; background-color: mediumpurple">
-			<ul class="easyui-datalist" title="장르" style="width:100%; height:100%">
-				<li value="AL">Alabama</li>
+		<div style="float:left; text-align:center; width:15%; height:100%;">
+			<ul class="easyui-datalist" title="장르" style="width:100%; height:100%;">
+
 			</ul>
 		</div>
-		<div style="float: left; text-align:center; width: 15%; height: 100%;">
-			<ul class="easyui-datalist" title="아티스트" style="width:100%; height:100%">
-				<li value="AL">Alabama</li>
+		<div style="float:left; text-align:center; width:15%; height:100%;">
+			<ul class="easyui-datalist" title="아티스트" style="width:100%; height:100%;">
+
 			</ul>
 		</div>
-		<div style="float: left; text-align: center; width: 40%; height: 100%; background-color: mediumpurple">공연 정보</div>
+		<div style="float:left; text-align:center; width:40%; height:100%;">공연 정보</div>
 	</div>
 
-	<div style="width: 100%; height: 700px; background-color: lavender; margin: 20px 0;"></div>
+	<div style="width:100%; height:700px; background-color:lavender; margin:20px 0;"></div>
 
 	<%@ include file="/WEB-INF/include/bottom.jsp"%>
 </body>

@@ -22,9 +22,16 @@ public class PerformanceDaoImpl implements PerformanceDao {
 		
 		List<PerformanceVo> scheduleRegion = (List<PerformanceVo>) map.get("result");
 
-		System.out.println(scheduleRegion);
-		
 		return scheduleRegion;
+	}
+
+	@Override
+	public List<PerformanceVo> scheduleRegionGugun(HashMap<String, Object> map) {
+		sqlSession.selectList("Performance.RegionGugun", map);
+		
+		List<PerformanceVo> scheduleRegionGugun = (List<PerformanceVo>) map.get("result");
+
+		return scheduleRegionGugun;
 	}
 	
 }
