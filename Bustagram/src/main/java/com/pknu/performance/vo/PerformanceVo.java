@@ -2,28 +2,28 @@ package com.pknu.performance.vo;
 
 public class PerformanceVo {
 
-	private char region_id_sido;
-	private char region_id_gugun;
+	private String region_id;
+	private String region_val;
 	
 	private String art_id;
 	private String str_id;
 	private String schedule_name;
 	private String schedule_info;
 	private String schedule_date;
-	private char   schedule_tf;
+	private String schedule_tf;
 	
 	
-	public char getRegion_id_sido() {
-		return region_id_sido;
+	public String getRegion_id() {
+		return region_id;
 	}
-	public void setRegion_id_sido(char region_id_sido) {
-		this.region_id_sido = region_id_sido;
+	public void setRegion_id(String region_id_sido) {
+		this.region_id = region_id_sido;
 	}
-	public char getRegion_id_gugun() {
-		return region_id_gugun;
+	public String getRegion_val() {
+		return region_val;
 	}
-	public void setRegion_id_gugun(char region_id_gugun) {
-		this.region_id_gugun = region_id_gugun;
+	public void setRegion_val(String region_val_sido) {
+		this.region_val = region_val_sido;
 	}
 	public String getArt_id() {
 		return art_id;
@@ -55,10 +55,10 @@ public class PerformanceVo {
 	public void setSchedule_date(String schedule_date) {
 		this.schedule_date = schedule_date;
 	}
-	public char getSchedule_tf() {
+	public String getSchedule_tf() {
 		return schedule_tf;
 	}
-	public void setSchedule_tf(char schedule_tf) {
+	public void setSchedule_tf(String schedule_tf) {
 		this.schedule_tf = schedule_tf;
 	}
 	

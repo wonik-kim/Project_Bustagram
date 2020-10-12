@@ -21,6 +21,8 @@ public class PerformanceDaoImpl implements PerformanceDao {
 		sqlSession.selectList("Performance.Region", map);
 		
 		List<PerformanceVo> scheduleRegion = (List<PerformanceVo>) map.get("result");
+
+		System.out.println(scheduleRegion);
 		
 		return scheduleRegion;
 	}

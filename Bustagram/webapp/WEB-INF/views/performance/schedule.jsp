@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +43,9 @@
 	<div style="width:100%; height:400px; background-color:lavender; margin:20px 0;">
 		<div style="float:left; text-align:center; width:15%; height:100%; background-color:mediumpurple">
 			<ul class="easyui-datalist" title="지역 (시도)" style="width:100%; height:100%">
-				<li value="AL">Alabama</li>
+				<c:forEach var="genreList" items="${ scheduleRegion }">
+					<li value="${ scheduleRegion.region_val }">${ scheduleRegion.region_val }</li>
+				</c:forEach>
 			</ul>
 		</div>
 		<div style="float: left; text-align:center; width: 15%; height: 100%;">
