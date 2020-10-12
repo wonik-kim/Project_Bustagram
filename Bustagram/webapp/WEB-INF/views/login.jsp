@@ -64,7 +64,7 @@
 		</div>
 	
 		<div class="login_child">
-			<a href="find_id">아이디 찾기</a> | <a href="find_pwd">비밀번호 찾기</a> | <a href="">회원가입</a>
+			<a href="find_id">아이디 찾기</a> | <a href="find_pwd">비밀번호 찾기</a> | <a href="signUp">회원가입</a>
 		</div>
 	
 	</div>
