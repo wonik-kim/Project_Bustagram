@@ -45,11 +45,7 @@
 			</table>
 		</form>
 	</div>
-<<<<<<< HEAD
-	<nav class="navbar navbar-expand-sm sticky-top" style="border:3px solid white; border-bottom:3px solid #F7819F; background-color:white;">
-=======
 	<nav class="navbar navbar-expand-sm sticky-top" style="border-bottom:3px solid #F7819F;">
->>>>>>> master
 		<ul class="navbar-nav">
 			<li class="navbar-item">
 				<a class="nav-link" href="#">버스타그램</a>
