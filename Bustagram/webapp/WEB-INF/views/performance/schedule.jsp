@@ -15,6 +15,12 @@
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<style>
+		#datepicker {
+			margin:1% 40%;
+			width:20%;
+		}
+	</style>
 	<script>
 		$('#sido').on('click', 'li', function() {
 			conlole.log($(this).attr("value"));
