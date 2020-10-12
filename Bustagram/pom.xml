@@ -2,8 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.pknu</groupId>
   <artifactId>Bustagram</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
   
   <!-- ojdbc6.jar 를 가진 리포지토리 -->
    <repositories>

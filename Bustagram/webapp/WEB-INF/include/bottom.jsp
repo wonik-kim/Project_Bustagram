@@ -36,7 +36,6 @@
 			</li>
 			<li class="navbar-item" id="footer-menu">
 				<p>고객센터</p>
-				
 			</li>
 		</ul>
 	</nav>
