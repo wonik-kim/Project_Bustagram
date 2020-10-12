@@ -63,7 +63,23 @@
         <property name="maxInMemorySize" value="100000000" />
     </bean>
     
-    <!--  Intercepter 설정 
+    <!-- 메일보내기 -->
+   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="jjwlsjtr98@gmail.com" />
+      <property name="password" value="gusdkqhw2@" />
+      <property name="javaMailProperties">
+         <props>
+               <prop key="mail.transport.protocol">smtp</prop>
+               <prop key="mail.smtp.auth">true</prop>
+               <prop key="mail.smtp.starttls.enable">true</prop>
+               <prop key="mail.debug">true</prop>
+         </props>
+      </property>
+   </bean>
+    
+    <!-- 
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
@@ -71,9 +87,11 @@
 			<mvc:exclude-mapping path="/css/**" />
 			<mvc:exclude-mapping path="/img/**" />
 			<mvc:exclude-mapping path="/js/**" />
+			<mvc:exclude-mapping path="/" />
+			
 			<bean id="authInterceptor"
-				class="com.spring.interceptor.AuthInterceptor"></bean>
+				class="com.pknu.interceptor.AuthInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors> 
-    -->
+     -->
 </beans>

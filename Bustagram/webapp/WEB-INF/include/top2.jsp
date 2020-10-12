@@ -22,7 +22,7 @@
 		.nav-link { color:black; }
 		.nav-link:hover { color:black; font-weight:bold; }
 		
-		input[type=submit] { display:block; width:100%; height:100%; padding:15px 10px; }
+		/*input[type=submit] { display:block;  height:100%; padding:15px 10px; }*/
 		.aLogin { color:black; }
 		.aLogin:hover { color:black; text-decoration:none; font-weight:bold; }
 	</style>
@@ -33,37 +33,11 @@
 			<a href="/"><img style="margin:10px 50px;" src="img/bustagram_logo_kor.png" alt="로고"/></a>
 		</div>
 		<form action="/" method="POST" id="formLogin">
-			<table id="tblLogin">
-				<tr>
-					<td><button><a class="aLogin" href="signUp" >회원가입</a></button></td>
-				</tr>
-				<tr>
-				
-					<td rowspan="2"><button><a href="login">로그인</a></button></td>
-				</tr>
 
-			</table>
 		</form>
 	</div>
-<<<<<<< HEAD
-	<nav class="navbar navbar-expand-sm sticky-top" style="border:3px solid white; border-bottom:3px solid #F7819F; background-color:white;">
-=======
 	<nav class="navbar navbar-expand-sm sticky-top" style="border-bottom:3px solid #F7819F;">
->>>>>>> master
-		<ul class="navbar-nav">
-			<li class="navbar-item">
-				<a class="nav-link" href="#">버스타그램</a>
-			</li>
-			<li class="navbar-item">
-				<a class="nav-link" href="#">공연장소 및 일정</a>
-			</li>
-			<li class="navbar-item">
-				<a class="nav-link" href="#">커뮤니티</a>
-			</li>
-			<li class="navbar-item">
-				<a class="nav-link" href="#">마이페이지</a>
-			</li>
-		</ul>
+
 	</nav>
 </body>
 </html>
