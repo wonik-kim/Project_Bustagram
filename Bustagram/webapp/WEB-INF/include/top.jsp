@@ -18,7 +18,7 @@
 		#tblLogin > tr > td { text-align:center; padding:3px; }
 		
 		.navbar-nav { width: 100%; }
-		#main-menu { width: 100%; text-align:center; }
+		.navbar-item { width: 25%; text-align:center; }
 		.nav-link { color:black; }
 		.nav-link:hover { color:black; font-weight:bold; }
 		
@@ -30,12 +30,12 @@
 <body style="width:90%; margin:0 auto;">
 	<div class="wrapTop">
 		<div id="divLogo" style="width:65%; height:150px;">
-			<a href="/"><img style="margin:10px 50px;" src="/img/bustagram_logo_kor.png" alt="로고"/></a>
+			<a href="/"><img style="margin:10px 50px;" src="img/bustagram_logo_kor.png" alt="로고"/></a>
 		</div>
 		<form action="/" method="POST" id="formLogin">
 			<table id="tblLogin">
 				<tr>
-					<td><button><a class="aLogin" href="#" >회원가입</a></button></td>
+					<td><button><a class="aLogin" href="signUp" >회원가입</a></button></td>
 				</tr>
 				<tr>
 				
@@ -45,18 +45,18 @@
 			</table>
 		</form>
 	</div>
-	<nav class="navbar navbar-expand-sm sticky-top" style="border:3px solid white; border-bottom:3px solid #F7819F;">
+	<nav class="navbar navbar-expand-sm sticky-top" style="border-bottom:3px solid #F7819F;">
 		<ul class="navbar-nav">
-			<li class="navbar-item" id="main-menu">
+			<li class="navbar-item">
 				<a class="nav-link" href="#">버스타그램</a>
 			</li>
-			<li class="navbar-item" id="main-menu">
+			<li class="navbar-item">
 				<a class="nav-link" href="#">공연장소 및 일정</a>
 			</li>
-			<li class="navbar-item" id="main-menu">
+			<li class="navbar-item">
 				<a class="nav-link" href="#">커뮤니티</a>
 			</li>
-			<li class="navbar-item" id="main-menu">
+			<li class="navbar-item">
 				<a class="nav-link" href="#">마이페이지</a>
 			</li>
 		</ul>

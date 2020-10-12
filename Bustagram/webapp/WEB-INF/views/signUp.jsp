@@ -178,8 +178,7 @@ th>td:first-child {
 
 
 			<center>
-				<input type="submit" value="가입하기" id="finish"> <input
-					type="button" id="back" value="돌아가기" onclick="location.href='/' ">
+				<input type="submit" value="가입하기" id="finish"> <input type="button" id="back" value="돌아가기" onclick="location.href='/' ">
 			</center>
 		</form>
 
