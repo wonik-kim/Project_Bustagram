@@ -77,7 +77,7 @@
       </property>
    </bean>
     
-    <!-- 
+     <!-- 
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
@@ -87,8 +87,7 @@
 			<mvc:exclude-mapping path="/js/**" />
 			<mvc:exclude-mapping path="/" />
 			
-			<bean id="authInterceptor"
-				class="com.pknu.interceptor.AuthInterceptor"></bean>
+			<bean id="authInterceptor" class="com.pknu.interceptor.AuthInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors> 
      -->
