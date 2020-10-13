@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.pknu.board.vo.BoardVo;
 import com.pknu.performance.dao.PerformanceDao;
 import com.pknu.performance.vo.PerformanceVo;
 
