@@ -5,6 +5,9 @@ public class PerformanceVo {
 	private String region_id;
 	private String region_val;
 	
+	private String region_id_sido;
+	private String region_id_gugun;
+	
 	private String art_id;
 	private String str_id;
 	private String schedule_name;
@@ -16,14 +19,26 @@ public class PerformanceVo {
 	public String getRegion_id() {
 		return region_id;
 	}
-	public void setRegion_id(String region_id_sido) {
-		this.region_id = region_id_sido;
+	public void setRegion_id(String region_id) {
+		this.region_id = region_id;
 	}
 	public String getRegion_val() {
 		return region_val;
 	}
-	public void setRegion_val(String region_val_sido) {
-		this.region_val = region_val_sido;
+	public void setRegion_val(String region_val) {
+		this.region_val = region_val;
+	}
+	public String getRegion_id_sido() {
+		return region_id_sido;
+	}
+	public void setRegion_id_sido(String region_id_sido) {
+		this.region_id_sido = region_id_sido;
+	}
+	public String getRegion_id_gugun() {
+		return region_id_gugun;
+	}
+	public void setRegion_id_gugun(String region_id_gugun) {
+		this.region_id_gugun = region_id_gugun;
 	}
 	public String getArt_id() {
 		return art_id;

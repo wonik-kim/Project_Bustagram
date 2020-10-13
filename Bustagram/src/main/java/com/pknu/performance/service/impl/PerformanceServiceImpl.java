@@ -25,9 +25,9 @@ public class PerformanceServiceImpl implements PerformanceService {
 
 	@Override
 	public List<PerformanceVo> scheduleRegionGugun(HashMap<String, Object> map) {
-		List<PerformanceVo> scheduleRegionGugun = performanceDao.scheduleRegionGugun(map);
+		List<PerformanceVo> scheduleRegion = performanceDao.scheduleRegionGugun(map);
 		
-		return scheduleRegionGugun;
+		return scheduleRegion;
 	}
 	
 }

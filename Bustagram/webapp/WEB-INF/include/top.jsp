@@ -53,7 +53,7 @@
 				<a class="nav-link" href="#">버스타그램</a>
 			</li>
 			<li class="navbar-item" id="main-menu">
-				<a class="nav-link" href="#">공연장소 및 일정</a>
+				<a class="nav-link" href="/Schedule">공연장소 및 일정</a>
 			</li>
 			<li class="navbar-item" id="main-menu">
 				<a class="nav-link" href="#">커뮤니티</a>
