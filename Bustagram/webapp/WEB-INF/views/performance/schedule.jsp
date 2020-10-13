@@ -28,23 +28,46 @@
 			display:block;
 			width:100%; height:300px;
 			overflow:auto;
-		}
-		.item {
-			display:block;
-			width:100%; height:30px;
 			margin:10px 0;
-			line-height:30px;
 		}
-		.item:hover {
+		.item_sido, .item_gugun, .item_genre, .item_artist, .item_performance {
+			display:block;
+			width:100%; height:40px;
+			margin:10px 0;
+			line-height:40px;
+		}
+		.item_sido:hover, .item_gugun:hover, .item_genre:hover, .item_artist:hover, .item_performance:hover {
 			background-color:#FBCFD0;
 			cursor: pointer;
 		}
+		#tbl_detail { width:100%; }
+		.th_detail { width:35%; padding:10px; border-bottom:1px solid #E3E3E4; }
+		.td_detail { width:65%; text-align:left; padding:10px; padding-left:20px; }
 	</style>
 	<script>
 		$(document).ready(
 			function() {
-				$('#sido').on('click', '.item', function() {
-					$.each($('.item'), function(index, item) {
+				var sido = '';
+				var gugun = '';
+				var genre = '';
+				var artist = '';
+				var performance = '';
+				
+				$('.datepicker').on('click', '#datepicker', function() {
+					$.each($('.item_sido'), function(index, item) {
+						$(item).css('background-color', 'white');
+					});
+					
+					$('#gugun').html('');
+					$('#genre').html('');
+					$('#artist').html('');
+					$('#performance').html('');
+				});
+				
+				$('#sido').on('click', '.item_sido', function() {
+					sido = $(this).attr('id');
+					
+					$.each($('.item_sido'), function(index, item) {
 						$(item).css('background-color', 'white');
 					});
 					
@@ -52,16 +75,156 @@
 					
 					$.ajax({
 						  url      : '/Schedule/Gugun'
-						, data     : { 'region_id_sido' : $(this).attr('id') }
+						, data     : { 'region_id_sido' : sido }
 						, dataType : 'json'
 						, success  : function(datas) {
 							var html = "";
 							
 							$.each(datas, function(index, item) {
-								html += "<div class='item' id='" +item.region_id+ "'>" +item.region_val+ "</div>";
+								html += "<div class='item_gugun' id='" +item.region_id+ "'>" +item.region_val+ "</div>";
 							});
 							
 							$('#gugun').html(html);
+							$('#genre').html('');
+							$('#artist').html('');
+							$('#performance').html('');
+						}
+						, error    : function() {
+							alert('error');
+						} 
+					});
+				});
+				
+				$('#gugun').on('click', '.item_gugun', function() {
+					gugun = $(this).attr('id');
+					
+					$.each($('.item_gugun'), function(index, item) {
+						$(item).css('background-color', 'white');
+					});
+					
+					$(this).css('background-color', '#FBCFD0');
+					
+					$.ajax({
+						  url      : '/Schedule/Genre'
+						, data     : {   'region_id_sido'  : sido
+									   , 'region_id_gugun' : gugun
+									   , 'schedule_date'   : $('#datepicker').val() }
+						, dataType : 'json'
+						, success  : function(datas) {
+							var html = "";
+							
+							$.each(datas, function(index, item) {
+								html += "<div class='item_genre' id='" +item.gen_id+ "'>" +item.gen_val+ "</div>";
+							});
+							
+							$('#genre').html(html);
+							$('#artist').html('');
+							$('#performance').html('');
+						}
+						, error    : function() {
+							alert('error');
+						} 
+					});
+				});
+				
+				$('#genre').on('click', '.item_genre', function() {
+					genre = $(this).attr('id');
+					
+					$.each($('.item_genre'), function(index, item) {
+						$(item).css('background-color', 'white');
+					});
+					
+					$(this).css('background-color', '#FBCFD0');
+					
+					$.ajax({
+						  url      : '/Schedule/Artist'
+						, data     : {   'region_id_sido'  : sido
+									   , 'region_id_gugun' : gugun
+									   , 'genre_id' : genre
+									   , 'schedule_date'   : $('#datepicker').val() }
+						, dataType : 'json'
+						, success  : function(datas) {
+							var html = "";
+							
+							$.each(datas, function(index, item) {
+								html += "<div class='item_artist' id='" +item.artist_id+ "'>" +item.art_name+ "</div>";
+							});
+							
+							$('#artist').html(html);
+							$('#performance').html('');
+						}
+						, error    : function() {
+							alert('error');
+						} 
+					});
+				});
+				
+				$('#artist').on('click', '.item_artist', function() {
+					artist = $(this).attr('id');
+					
+					$.each($('.item_artist'), function(index, item) {
+						$(item).css('background-color', 'white');
+					});
+					
+					$(this).css('background-color', '#FBCFD0');
+					
+					$.ajax({
+						  url      : '/Schedule/Performance'
+						, data     : {   'region_id_sido'  : sido
+									   , 'region_id_gugun' : gugun
+									   , 'genre_id'        : genre
+									   , 'artist_id'       : artist
+									   , 'schedule_date'   : $('#datepicker').val() }
+						, dataType : 'json'
+						, success  : function(datas) {
+							var html = "";
+							
+							$.each(datas, function(index, item) {
+								html += "<div class='item_performance' id='" +item.idx+ "'>" +item.schedule_name+ "</div>";
+							});
+							
+							$('#performance').html(html);
+						}
+						, error    : function() {
+							alert('error');
+						} 
+					});
+				});
+				
+				$('#performance').on('click', '.item_performance', function() {
+					performance = $(this).attr('id');
+					
+					$.ajax({
+						  url      : '/Schedule/Detail'
+						, data     : { 'idx' : performance }
+						, dataType : 'json'
+						, success  : function(data) {
+							var html = "";
+							
+							html += "<table id='tbl_detail'>";
+							html += "<tr>";
+							html += "<th class='th_detail'>공연명</th>";
+							html += "<td class='td_detail'>" +data.schedule_name+ "</td>";
+							html += "</tr>";
+							html += "<tr>";
+							html += "<th class='th_detail'>아티스트</th>";
+							html += "<td class='td_detail'>" +data.art_name+ "</td>";
+							html += "</tr>";
+							html += "<tr>";
+							html += "<th class='th_detail'>장소</th>";
+							html += "<td class='td_detail'>" +data.str_name+ "</td>";
+							html += "</tr>";
+							html += "<tr>";
+							html += "<th class='th_detail'>날짜 및 시간</th>";
+							html += "<td class='td_detail'>" +data.schedule_date+ "</td>";
+							html += "</tr>";
+							html += "<tr>";
+							html += "<th class='th_detail'>소개</th>";
+							html += "<td class='td_detail'>" +data.schedule_info+ "</td>";
+							html += "</tr>";
+							html += "</table>";
+							
+							$('#performance').html(html);
 						}
 						, error    : function() {
 							alert('error');
@@ -74,9 +237,8 @@
 <body>
 	<%@ include file="/WEB-INF/include/top.jsp"%>
 
-	<div style="width: 80%; height: 100px; margin: 20px 10%;">
+	<div class="datepicker" style="width: 80%; height: 100px; margin: 20px 10%;">
 		<input data-date-format="yyyy-mm" id="datepicker">
-		<input type="button" value="조회"/>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
@@ -96,31 +258,31 @@
 	</script>
 
 	<div style="width:100%; height:400px; margin:20px 0;">
-		<div style="float:left; text-align:center; width:15%; height:100%; margin:0 1%">
+		<div style="float:left; text-align:center; width:12.5%; height:100%; margin:0 1%">
 			<div class="list_title">지역 (시도)</div>
 			<div class="list_body" id="sido">
 				<c:forEach var="scheduleRegion" items="${ scheduleRegion }">
-					<div class="item" id="${ scheduleRegion.region_id }">${ scheduleRegion.region_val }</div>
+					<div class="item_sido" id="${ scheduleRegion.region_id }">${ scheduleRegion.region_val }</div>
 				</c:forEach>
 			</div>
 		</div>
 		
-		<div style="float:left; text-align:center; width:15%; height:100%; margin:0 1%">
+		<div style="float:left; text-align:center; width:12.5%; height:100%; margin:0 1%">
 			<div class="list_title">지역 (구군)</div>
 			<div class="list_body" id="gugun"></div>
 		</div>
 		
-		<div style="float:left; text-align:center; width:15%; height:100%; margin:0 1%">
+		<div style="float:left; text-align:center; width:12.5%; height:100%; margin:0 1%">
 			<div class="list_title">장르</div>
 			<div class="list_body" id="genre"></div>
 		</div>
 		
-		<div style="float:left; text-align:center; width:15%; height:100%; margin:0 1%">
+		<div style="float:left; text-align:center; width:12.5%; height:100%; margin:0 1%">
 			<div class="list_title">아티스트</div>
 			<div class="list_body" id="artist"></div>
 		</div>
 		
-		<div style="float:left; text-align:center; width:30%; height:100%; margin:0 1%">
+		<div style="float:left; text-align:center; width:40%; height:100%; margin:0 1%">
 			<div class="list_title">공연 정보</div>
 			<div class="list_body" id="performance"></div>
 		</div>

@@ -38,6 +38,36 @@ public class PerformanceController {
 		return scheduleRegion;
 	}
 	
+	@RequestMapping("/Schedule/Genre")
+	@ResponseBody
+	public List<PerformanceVo> schedule_genre(@RequestParam HashMap<String, Object> map) {
+		List<PerformanceVo> scheduleGenre = performanceService.scheduleGenre(map);
+		
+		return scheduleGenre;
+	}
 	
+	@RequestMapping("/Schedule/Artist")
+	@ResponseBody
+	public List<PerformanceVo> schedule_artist(@RequestParam HashMap<String, Object> map) {
+		List<PerformanceVo> scheduleArtist = performanceService.scheduleArtist(map);
+		
+		return scheduleArtist;
+	}
+	
+	@RequestMapping("/Schedule/Performance")
+	@ResponseBody
+	public List<PerformanceVo> schedule_performance(@RequestParam HashMap<String, Object> map) {
+		List<PerformanceVo> schedulePerformance = performanceService.schedulePerformance(map);
+		
+		return schedulePerformance;
+	}
+	
+	@RequestMapping("/Schedule/Detail")
+	@ResponseBody
+	public PerformanceVo schedule_detail(@RequestParam HashMap<String, Object> map) {
+		PerformanceVo scheduleDetail = performanceService.scheduleDetail(map);
+		
+		return scheduleDetail;
+	}
 
 }
