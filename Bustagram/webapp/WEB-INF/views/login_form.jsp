@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.login_tab { width:100%; text-align:center; }
+	.login_tab { width:100%; text-align:center; margin:20px;}
 	.login_child{ width:50%; display:inline-block; margin-top:20px; }
 	.login_child:nth-child(1) { margin-top:100px; }
 	input { width:400px; height:60px; }
-	
+	span { color: red; font-weight:bold; }
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -27,11 +27,11 @@
 			return false;
 		}
 		
+		return true;
 	}
-	return true;
 	
 	$(function() {
-		$('').on('submit', function(e){
+		$('#loginForm').on('submit', function(e){
 			var valid = inputCheck();
 			if(valid){
 				return true;
@@ -46,29 +46,32 @@
 </script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/include/top2.jsp"%>
-	<div class="login_tab">
+	<%@ include file="/WEB-INF/include/topLogin.jsp"%>
 	
-		<div class="login_child">
-			<input type="text" name="mid" placeholder="아이디" /><br>
-			<span id="err_id"></span>
-		</div>
-		
-		<div class="login_child">
-			<input type="password" name="mpwd" placeholder="비밀번호" /><br>
-			<span id="err_pwd"></span>
-		</div>
-		
-		<div class="login_child">
-			<input type="submit" value="로그인" />
-		</div>
 	
-		<div class="login_child">
-			<a href="find_id">아이디 찾기</a> | <a href="find_pwd">비밀번호 찾기</a> | <a href="signUp">회원가입</a>
-		</div>
-	
-	</div>
-	
+	<form action="/Master/login" method="POST" id="loginForm">
+	<table class="login_tab">
+			<tr>
+				<td><input type="text" name="mid" id="mid" class="login" placeholder="아이디" />
+					
+				</td>
+			</tr>
+			<tr><td><span id="err_id"></span></td></tr>
+			<tr>
+				<td><input type="password" name="mpwd" id="mpwd" class="login" placeholder="비밀번호" />
+			</tr>
+			<tr><td><span id="err_pwd"></span></td></tr>
+			<tr>
+				<td><input type="submit" class="login"  value="로그인" /></td>
+			</tr>
+			
+			<tr>
+				<td><a href="/Master/find_id">아이디 찾기</a> | <a href="/Master/find_pwd">비밀번호 찾기</a> | <a href="signUp">회원가입</a></td>
+			</tr>
+			
+			
+		</table>
+	</form>
 	
 	
 	

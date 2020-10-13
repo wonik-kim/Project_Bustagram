@@ -26,10 +26,10 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 
 		HttpSession session = request.getSession();
 		
-		Object object = session.getAttribute("login");
+		Object object = session.getAttribute("/Master/login");
 		
 		if(object == null) {
-			response.sendRedirect("/Member/LoginForm");
+			response.sendRedirect("/Main/login_form");
 			
 			return false;
 		}
