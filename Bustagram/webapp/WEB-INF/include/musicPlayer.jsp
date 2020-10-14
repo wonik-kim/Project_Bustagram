@@ -76,8 +76,35 @@ var MuteVol = function(myaudio){
 	
 }
 
+// ajax로 재생할 곡 리스트 목록 들고오기 
+function callMusicList() {
+	
+	// 오디오 div 
+	var audio_Div = document.getElementById('audio_Div');
+	
+	$.ajax({
+		
+		url:'MS/getList',
+		dataType: 'json',
+		data : {mid:'IHB'},
+		success : function(datas){
+			alert(datas);
+		},
+		error : function(){
+			alert('err');
+		}
+		
+		
+	})
+	
+}
+
+
+
 
 $(document).ready(function(){
+	
+	callMusicList();
 	
 	 var myaudio  = document.getElementById('myaudio');
 	
@@ -243,6 +270,10 @@ $(document).ready(function(){
 			    <input id = "hiddenVol" type = "hidden" value = "mute"/>
 			</div>
 			
+			<!--오디오 테그가 들어올 div-->
+			<div id = "audio_Div">
+				
+			</div>
 			
 		</div>
 	</div>
