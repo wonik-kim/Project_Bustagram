@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 	
 
-	@RequestMapping("/")
-	public String home() {
-		return "musicStation";
-	}
+//	@RequestMapping("/")
+//	public String home() {
+//		return "musicStation";
+//	}
 
 	
 	
