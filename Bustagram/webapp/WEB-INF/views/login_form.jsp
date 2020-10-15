@@ -49,7 +49,7 @@
 	<%@ include file="/WEB-INF/include/topLogin.jsp"%>
 	
 	
-	<form action="/Master/login" method="POST" id="loginForm">
+	<form action="/Admin/login" method="POST" id="loginForm">
 	<table class="login_tab">
 			<tr>
 				<td><input type="text" name="mid" id="mid" class="login" placeholder="아이디" />
