@@ -11,7 +11,7 @@
 
 .swiper-container {
 	height:420px;
-	border:5px solid silver;
+	border:3px solid #F7819F;
 	border-radius:7px;
 	box-shadow:0 0 20px #ccc inset;
 }
@@ -75,6 +75,46 @@
 			</div>
 		</div>
 		
+		<div class="swiper-slide">
+			<div>
+				<img src="img/busker5.jpg">
+				<br>락
+				<br>조정치와 아이들
+			</div>
+		</div>
+		
+		<div class="swiper-slide">
+			<div>
+				<img src="img/busker5.jpg">
+				<br>락
+				<br>조정치와 아이들
+			</div>
+		</div>
+		
+		<div class="swiper-slide">
+			<div>
+				<img src="img/busker5.jpg">
+				<br>락
+				<br>조정치와 아이들
+			</div>
+		</div>
+		
+		<div class="swiper-slide">
+			<div>
+				<img src="img/busker5.jpg">
+				<br>락
+				<br>조정치와 아이들
+			</div>
+		</div>
+		
+		<div class="swiper-slide">
+			<div>
+				<img src="img/busker5.jpg">
+				<br>락
+				<br>조정치와 아이들
+			</div>
+		</div>
+		
 		
 		
 	</div>
@@ -85,10 +125,15 @@
 
 	<!-- 페이징 -->
 	<div class="swiper-pagination"></div>
+	
+
 </div>
 <script>
 
 new Swiper('.swiper-container', {
+	
+
+
 
 	slidesPerView : 5, // 동시에 보여줄 슬라이드 갯수
 	spaceBetween : 10, // 슬라이드간 간격
