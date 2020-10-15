@@ -1,10 +1,10 @@
 package com.pknu.master.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.pknu.master.service.MasterService;
 import com.pknu.master.vo.MasterVo;
@@ -23,74 +22,107 @@ public class MasterController {
 
 	@Autowired
 	JavaMailSender mailSender;
-	
+
 	@Autowired
-    MasterService masterService;
-	
+	MasterService masterService;
+
 	@RequestMapping("/signUp")
 	public String signUp() {
 		return "signUp";
 	}
 
 	// mailSending 코드
-	@RequestMapping(value = "/Bustagram/createEmailCheck2", method = RequestMethod.GET)
+	@RequestMapping(value = "/Bustagram/createEmailCheck2", method = RequestMethod.POST)
 	@ResponseBody
-	public String mailSending(HttpServletRequest request) {
+	public String mailSending(@RequestParam HashMap<String, Object> map, HttpServletRequest request) {
 		int ran = new Random().nextInt(900000) + 100000;
 
 		String setfrom = "jjwlstjr98@gmail.com";
-		String userEmail = request.getParameter("userEmail"); // 받는 사람 이메일
-		String title = "인증번호"; // 제목
-		String content = Integer.toString(ran); // 내용
+		String memmail = request.getParameter("memmail"); // 받는 사람 이메일
+		String title = "Bustragram 회원가입 인증번호"; // 제목
+		String content = "인증번호는 \"";
+		content += Integer.toString(ran); // 내용
+		content += "\" 입니다 \n 인증번호를 입력해주세요.";
 
-		masterService.sendMail(setfrom,userEmail,title,content);
+		// map.put("memmail",memmail);
+		map.put("ran", ran);
 
-		return "redirect:/mail/mailForm";
-	}
+		// System.out.println("memmail before : "+memmail);
+		masterService.sendMail(setfrom, memmail, title, content);
+		masterService.insAuth(map);
 
-	
-	@RequestMapping(value="/Master/login", method=RequestMethod.POST)
-	public ModelAndView login(HttpSession session, @RequestParam HashMap<String, Object> map) {
-		
-		MasterVo masterVo = masterService.masterLogin(map);
-		
-		ModelAndView mv = new ModelAndView();
-		
-		if(masterVo != null) {
-			session.setAttribute("/Master/login", masterVo);
-			
-			mv.addObject("/Master/login", session.getAttribute("/Master/login"));
-			mv.setViewName("redirect:/MainLogin");
-		}
-		else {
-			mv.setViewName("redirect:/Main/login_form");
-		}
-		return mv;
-		
+		return Integer.toString(ran);
 	}
 	
-	@RequestMapping("/MainLogin")
-	public String mainLogin() {
-		return "MainLogin";
-	}
-	
-	@RequestMapping("/Master/logout")
-	public String logout(HttpSession session) {
-		session.removeAttribute("/Master/login");
-		session.invalidate();
+	@RequestMapping(value = "/Bustagram/idCheck", method = RequestMethod.POST)
+	@ResponseBody
+	public int idCheck(@RequestParam HashMap<String,Object> map) {
 		
+		int result = masterService.idCheck(map);
+		return result;
+	}
+
+	@RequestMapping(value = "/signUpComplete", method = RequestMethod.POST)
+	public String signUpComplete(@RequestParam HashMap<String, Object> map) {
+		map.remove("pass");
+		map.remove("random");
+
+		String year  = (String) map.get("year");
+		       year += "/";
+
+		String month  = (String) map.get("month");
+		       month += "/";
+
+		String day    = (String) map.get("day");
+		String birth  = year + month + day;
+		
+		map.put("birth",birth);
+		
+		map.remove("year");
+		map.remove("month");
+		map.remove("day");
+		System.out.println("signUp1 : " + map);
+		masterService.signUp(map);
+
 		return "redirect:/";
 	}
 	
-	@RequestMapping("/Master/find_id")
-	public String find_id() {
-		return "find_id";
+	@RequestMapping("/forgot")
+	public String forgot() {
+		return "forgot";
 	}
 	
-	@RequestMapping("/Master/find_pwd")
-	public String find_pwd() {
-		return "find_pwd";
+	@RequestMapping(value = "/idFind", method = RequestMethod.POST)
+	@ResponseBody
+	public int findId(@RequestParam HashMap<String,Object> map, HttpServletRequest request) {
+		//List<MasterVo> idInfo = masterService.findId(map);
+		int result = masterService.findId(map);
+		System.out.println("findId key || value : " + map);
+		System.out.println("result : " + result);
+		if (result == 1) {
+			/* List<MasterVo> idGet = masterService.idGet(map); */
+			System.out.println("idGet begin ----> ");
+			masterService.idGet(map);
+			
+			/*
+			 * String setfrom = "jjwlstjr98@gmail.com"; String memmail =
+			 * request.getParameter("memmail"); // 받는 사람 이메일 String title =
+			 * "Bustragram 회원가입 인증번호"; // 제목 String content = "회원님의 아이디는 \""; content +=
+			 * "\" 입니다. \n ";
+			 * 
+			 * // map.put("memmail",memmail);
+			 * 
+			 * // System.out.println("memmail before : "+memmail);
+			 * masterService.sendMail(setfrom, memmail, title, content);
+			 */
+		 	
+		}
+		/*
+		 * else { masterService.findId(map); }
+		 */
+		
+		
+		return result;
 	}
-	
-	
+
 }

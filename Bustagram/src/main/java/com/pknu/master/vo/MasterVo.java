@@ -1,30 +1,41 @@
 package com.pknu.master.vo;
 
-import java.sql.Date;
-
 public class MasterVo {
 
-	private String userEmail;
+	// Login 관련
+	private String memmail;
+	
+	private String mid;
+	private String mempwd;
+	private String memname;
+	private String membirth;
+	private String memgen;
+	
+	private int    ran;
+	private int authnum;
 
-	private int 	idx;
-	private String 	mid;
-	private String 	mpwd;
-	private String 	mem_name;
-	private Date 	mem_birth;
-	private String 	mem_gen;
-	private String 	mem_mail;
-	private String 	lvl;
-	private int 	delnum;
-	
-	
-	
-	
-	public int getIdx() {
-		return idx;
+	public int getAuthnum() {
+		return authnum;
 	}
 
-	public void setIdx(int idx) {
-		this.idx = idx;
+	public void setAuthnum(int authnum) {
+		this.authnum = authnum;
+	}
+
+	public int getRan() {
+		return ran;
+	}
+
+	public void setRan(int ran) {
+		this.ran = ran;
+	}
+
+	public String getMemmail() {
+		return memmail;
+	}
+
+	public void setMemmail(String memmail) {
+		this.memmail = memmail;
 	}
 
 	public String getMid() {
@@ -35,68 +46,40 @@ public class MasterVo {
 		this.mid = mid;
 	}
 
-	public String getMpwd() {
-		return mpwd;
+	public String getMempwd() {
+		return mempwd;
 	}
 
-	public void setMpwd(String mpwd) {
-		this.mpwd = mpwd;
+	public void setMempwd(String mempwd) {
+		this.mempwd = mempwd;
 	}
 
-	public String getMem_name() {
-		return mem_name;
+	public String getMemname() {
+		return memname;
 	}
 
-	public void setMem_name(String mem_name) {
-		this.mem_name = mem_name;
+	public void setMemname(String memname) {
+		this.memname = memname;
 	}
 
-	public Date getMem_birth() {
-		return mem_birth;
+	public String getMembirth() {
+		return membirth;
 	}
 
-	public void setMem_birth(Date mem_birth) {
-		this.mem_birth = mem_birth;
+	public void setMembirth(String membirth) {
+		this.membirth = membirth;
 	}
 
-	public String getMem_gen() {
-		return mem_gen;
+	public String getMemgen() {
+		return memgen;
 	}
 
-	public void setMem_gen(String mem_gen) {
-		this.mem_gen = mem_gen;
+	public void setMemgen(String memgen) {
+		this.memgen = memgen;
 	}
+	
+	
 
-	public String getMem_mail() {
-		return mem_mail;
-	}
-
-	public void setMem_mail(String mem_mail) {
-		this.mem_mail = mem_mail;
-	}
-
-	public String getLvl() {
-		return lvl;
-	}
-
-	public void setLvl(String lvl) {
-		this.lvl = lvl;
-	}
-
-	public int getDelnum() {
-		return delnum;
-	}
-
-	public void setDelnum(int delnum) {
-		this.delnum = delnum;
-	}
-
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
+	
 	
 }
