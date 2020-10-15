@@ -57,5 +57,12 @@ public class PerformanceServiceImpl implements PerformanceService {
 		
 		return scheduleDetail;
 	}
+
+	@Override
+	public List<PerformanceVo> fullCalendarRegion(HashMap<String, Object> map) {
+		List<PerformanceVo> fullCalendarRegion = performanceDao.fullCalendarRegion(map);
+		
+		return fullCalendarRegion;
+	}
 	
 }

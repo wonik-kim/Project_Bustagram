@@ -71,5 +71,14 @@ public class PerformanceDaoImpl implements PerformanceDao {
 		
 		return performanceVo;
 	}
+
+	@Override
+	public List<PerformanceVo> fullCalendarRegion(HashMap<String, Object> map) {
+		sqlSession.selectList("FullCalendar.Region", map);
+		
+		List<PerformanceVo> fullCalendarRegion = (List<PerformanceVo>) map.get("result");
+		
+		return fullCalendarRegion;
+	}
 	
 }

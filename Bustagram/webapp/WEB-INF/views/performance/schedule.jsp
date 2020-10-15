@@ -9,6 +9,17 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet" />
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+	
+	<link href='/css/full_calendar/core_main.css' rel='stylesheet' />
+	<link href='/css/full_calendar/daygrid_main.css' rel='stylesheet' />
+	<link href='/css/full_calendar/timegrid_main.css' rel='stylesheet' />
+	<link href='/css/full_calendar/list_main.css' rel='stylesheet' />
+	<script src='/js/full_calendar/core_main.js'></script>
+	<script src='/js/full_calendar/interaction_main.js'></script>
+	<script src='/js/full_calendar/daygrid_main.js'></script>
+	<script src='/js/full_calendar/timegrid_main.js'></script>
+	<script src='/js/full_calendar/list_main.js'></script>
+	
 	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<style>
@@ -120,6 +131,45 @@
 							$('#genre').html(html);
 							$('#artist').html('');
 							$('#performance').html('');
+							
+							var events = [];
+							
+							$.ajax({
+								  url      : '/FullCalendar/Region'
+								, data     : {   'region_id_sido' : sido
+									           , 'region_id_gugun' : gugun }
+								, datatype : 'json'
+								, async:false
+								, success  : function(data) {
+									$.each(data, function(index, item) {
+										events.push({
+											  title     : item.title
+											, start     : item.start
+											, color     : item.color
+											, textColor : item.textColor
+										});	
+									});
+								}
+								, error   : function() {
+									alert("error");
+								}
+							});	
+							
+						    var calendarEl = document.getElementById('calendar');
+						    var calendar = new FullCalendar.Calendar(calendarEl, {
+						      plugins: [ 'interaction', 'dayGrid'],
+						      header: {
+						        center: 'title'
+						      },
+						      defaultDate: $('#datepicker').val()+ '-01',
+						      navLinks: false, // can click day/week names to navigate views
+						      businessHours: true, // display business hours
+						      events:events
+						    });
+							
+						    $('#calendar').html('');
+						    
+						    calendar.render();
 						}
 						, error    : function() {
 							alert('error');
@@ -288,7 +338,7 @@
 		</div>
 	</div>
 
-	<div style="width:100%; height:700px; background-color:lavender; margin:20px 0;"></div>
+	<div id="calendar" style="width:100%; height:700px; margin:20px 0;"></div>
 
 	<%@ include file="/WEB-INF/include/bottom.jsp"%>
 </body>

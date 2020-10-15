@@ -1,11 +1,15 @@
 package com.pknu.performance.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -69,5 +73,32 @@ public class PerformanceController {
 		
 		return scheduleDetail;
 	}
+	
+	@RequestMapping(value="/FullCalendar/Region", method=RequestMethod.GET)
+	@ResponseBody
+	@DateTimeFormat(iso=ISO.DATE)
+	public List<HashMap<String,Object>> fullCalendar(@RequestParam HashMap<String, Object> map) {
+	
+		List<PerformanceVo> fullCalendarRegion = performanceService.fullCalendarRegion(map);	
+		List<HashMap<String,Object>> scheduleList = new ArrayList<HashMap<String,Object>>();
+		
+		for(int i = 0; i < fullCalendarRegion.size(); i++) {
+			HashMap<String,Object> fullMap = new HashMap<String, Object>();
+			
+			String title = fullCalendarRegion.get(i).getSchedule_date().substring(11) + ' ' +fullCalendarRegion.get(i).getArt_name();
+			String start = fullCalendarRegion.get(i).getSchedule_date().substring(0, 10);
+			String color = "#A349A4";
+			String backgroundColor ="#00ff0000";
+			
+			fullMap.put("title", title);
+			fullMap.put("start", start);
+			fullMap.put("textColor", color);
+			fullMap.put("color", backgroundColor);
+
+			scheduleList.add(fullMap);
+		}
+
+		return scheduleList;
+	}	
 
 }

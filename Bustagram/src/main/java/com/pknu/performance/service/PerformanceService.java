@@ -19,4 +19,6 @@ public interface PerformanceService {
 
 	PerformanceVo scheduleDetail(HashMap<String, Object> map);
 
+	List<PerformanceVo> fullCalendarRegion(HashMap<String, Object> map);
+
 }
