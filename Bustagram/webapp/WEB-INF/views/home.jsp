@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>테스트 home.jsp</h1>
+	<a href="/test2">구현 실험 페이지 이동</a>
 </body>
 </html>
