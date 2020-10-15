@@ -35,7 +35,7 @@
 		<form action="/" method="POST" id="formLogin">
 			<table id="tblLogin">
 				<tr>
-					<td><a class="aLogin" href="#" >회원가입</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="aLogin" href="#" >ID / PW 찾기</a></td>
+					<td><a class="aLogin" href="/signUp" >회원가입</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="aLogin" href="/forgot" >ID / PW 찾기</a></td>
 				</tr>
 				<tr>
 					<td><input type="text" id="userId" name="userId" placeholder="아이디(이메일)"/></td>
