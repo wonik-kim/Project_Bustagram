@@ -22,8 +22,9 @@ public class MsDaoImpl implements MsDao {
 		
 		List<MsVo> list = (List<MsVo>)map.get("result");
 		
+		System.out.println(list);
 		
-		return null;
+		return list;
 	}
 
 	

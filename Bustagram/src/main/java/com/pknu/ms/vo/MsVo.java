@@ -3,16 +3,18 @@ package com.pknu.ms.vo;
 public class MsVo {
 	// private String rep; // 가사
 	//필드 
-	private String sumnail_img;
+	private String ci;
 	private String title;
+	private String audio;
 	private String singer;
 	
 	
-	public String getSumnail_img() {
-		return sumnail_img;
+	
+	public String getCi() {
+		return ci;
 	}
-	public void setSumnail_img(String sumnail_img) {
-		this.sumnail_img = sumnail_img;
+	public void setCi(String ci) {
+		this.ci = ci;
 	}
 	public String getTitle() {
 		return title;
@@ -26,6 +28,19 @@ public class MsVo {
 	public void setSinger(String singer) {
 		this.singer = singer;
 	}
+	public String getAudio() {
+		return audio;
+	}
+	public void setAudio(String audio) {
+		this.audio = audio;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "MsVo [ci=" + ci + ", title=" + title + ", audio=" + audio + ", singer=" + singer + "]";
+	}
+	
 	
 	
 	
