@@ -99,6 +99,7 @@
 							$('#genre').html('');
 							$('#artist').html('');
 							$('#performance').html('');
+							$('#calendar').html('');
 						}
 						, error    : function() {
 							alert('error');
