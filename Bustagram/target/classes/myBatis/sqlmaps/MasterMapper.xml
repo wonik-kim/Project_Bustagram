@@ -1,40 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Master">
-	<resultMap id="memberViewMap" type="com.pknu.master.vo.MasterVo">
-		<result property="idx" 			column="IDX" 		javaType="int" />
-		<result property="mid" 			column="MID" 		javaType="string" />
-		<result property="mem_pwd" 		column="MEM_PWD" 	javaType="string" />
-		<result property="mem_name" 	column="MEM_NAME" 	javaType="string" />
-		<result property="mem_birth" 	column="MEM_BIRTH" 	javaType="date" />
-		<result property="mem_gen" 		column="MEM_GEN" 	javaType="string" />
-		<result property="mem_mail" 	column="MEM_MAIL" 	javaType="string" />
-		<result property="lvl" 			column="LVL" 		javaType="string" />
-		<result property="delnum" 		column="DELNUM" 	javaType="int" />
-		
-	</resultMap>
-
-
-
-	<select id="MasterLogin" parameterType="hashmap" resultType="com.pknu.master.vo.MasterVo">
-		SELECT 	MID, MEM_PWD
-		FROM 	MEMBERS_TBL
-		WHERE 	MID = #{ mid } 
-		AND		MEM_PWD = #{ mpwd }
 	
-	</select>
-
-
-</mapper>
-=======
-<!DOCTYPE mapper
-   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="Master">
-
 	<resultMap id="masterMap" type="com.pknu.master.vo.MasterVo">
 		<result property="mid" column="MID" javaType="string" />
 		<result property="mempwd" column="MEM_PWD" javaType="string" />
@@ -107,4 +75,4 @@
 		)} -->
     </select>
 </mapper>
->>>>>>> master
+
