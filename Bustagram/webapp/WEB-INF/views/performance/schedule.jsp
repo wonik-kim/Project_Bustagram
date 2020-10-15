@@ -5,11 +5,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>공연장소 및 일정</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet" />
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	
+	<%-- full calendar --%>
 	<link href='/css/full_calendar/core_main.css' rel='stylesheet' />
 	<link href='/css/full_calendar/daygrid_main.css' rel='stylesheet' />
 	<link href='/css/full_calendar/timegrid_main.css' rel='stylesheet' />
@@ -20,8 +19,6 @@
 	<script src='/js/full_calendar/timegrid_main.js'></script>
 	<script src='/js/full_calendar/list_main.js'></script>
 	
-	<script type="text/javascript" src="/js/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<style>
 		#datepicker {
 			margin:0 40%;
@@ -54,7 +51,11 @@
 		#tbl_detail { width:100%; }
 		.th_detail { width:35%; padding:10px; border-bottom:1px solid #E3E3E4; }
 		.td_detail { width:65%; text-align:left; padding:10px; padding-left:20px; }
+		
+		.fc-title { text-align:center; margin:o auto; width:100%; display:block; }
+		.fc-title:hover { font-weight:bold; cursor: pointer; }
 	</style>
+	
 	<script>
 		$(document).ready(
 			function() {
@@ -63,6 +64,7 @@
 				var genre = '';
 				var artist = '';
 				var performance = '';
+				var idx = 0;
 				
 				$('.datepicker').on('click', '#datepicker', function() {
 					$.each($('.item_sido'), function(index, item) {
@@ -73,6 +75,7 @@
 					$('#genre').html('');
 					$('#artist').html('');
 					$('#performance').html('');
+					$('#calendar').html('');
 				});
 				
 				$('#sido').on('click', '.item_sido', function() {
@@ -144,11 +147,12 @@
 								, success  : function(data) {
 									$.each(data, function(index, item) {
 										events.push({
-											  title     : item.title
+											url        : item.idx
+											, title     : item.title
 											, start     : item.start
 											, color     : item.color
 											, textColor : item.textColor
-										});	
+										});
 									});
 								}
 								, error   : function() {
@@ -160,7 +164,9 @@
 						    var calendar = new FullCalendar.Calendar(calendarEl, {
 						      plugins: [ 'interaction', 'dayGrid'],
 						      header: {
-						        center: 'title'
+						          left   : ''
+						        , center : 'title'
+						        , right  : ''
 						      },
 						      defaultDate: $('#datepicker').val()+ '-01',
 						      navLinks: false, // can click day/week names to navigate views
@@ -171,6 +177,14 @@
 						    $('#calendar').html('');
 						    
 						    calendar.render();
+						    
+						    $('.fc-day-grid-event').each(function(){
+
+						    	var pkValue =  $(this).attr('href');
+
+						    	$(this).children().children('.fc-title').attr('id', pkValue);
+						    	$(this).removeAttr('href');
+						    	})
 						}
 						, error    : function() {
 							alert('error');
@@ -282,31 +296,61 @@
 						} 
 					});
 				});
+				
+				
+				$('div').on('click', '.fc-title', function() {
+					idx = $(this).attr('id');
+
+					$.ajax({
+						  url      : '/Schedule/Detail'
+						, data     : { 'idx' : idx }
+						, dataType : 'json'
+						, success  : function(data) {
+							var html = "";
+							
+							html += "<table id='tbl_detail'>";
+							html += "<tr>";
+							html += "<th class='th_detail'>공연명</th>";
+							html += "<td class='td_detail'>" +data.schedule_name+ "</td>";
+							html += "</tr>";
+							html += "<tr>";
+							html += "<th class='th_detail'>아티스트</th>";
+							html += "<td class='td_detail'>" +data.art_name+ "</td>";
+							html += "</tr>";
+							html += "<tr>";
+							html += "<th class='th_detail'>장소</th>";
+							html += "<td class='td_detail'>" +data.str_name+ "</td>";
+							html += "</tr>";
+							html += "<tr>";
+							html += "<th class='th_detail'>날짜 및 시간</th>";
+							html += "<td class='td_detail'>" +data.schedule_date+ "</td>";
+							html += "</tr>";
+							html += "<tr>";
+							html += "<th class='th_detail'>소개</th>";
+							html += "<td class='td_detail'>" +data.schedule_info+ "</td>";
+							html += "</tr>";
+							html += "</table>";
+							
+							$('#genre').html('');
+							$('#artist').html('');
+							$('#performance').html(html);
+							
+							$('html, body').animate({ scrollTop : 0 }, 400);
+						}
+						, error    : function() {
+							alert('error');
+						} 
+					});
+				});
 			});
 	</script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/include/top.jsp"%>
 
-	<div class="datepicker" style="width: 80%; height: 100px; margin: 20px 10%;">
+	<div class="datepicker" style="width: 80%; height: 80px; margin: 20px 10%;">
 		<input data-date-format="yyyy-mm" id="datepicker">
 	</div>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-	<script src="/js/bootstrap-datepicker.ko.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$('#datepicker').datepicker({
-			  autoclose   : true
-			, format      : "yyyy-mm"
-			, viewMode    : "months"
-			, minViewMode : "months"
-			, orientation : "right bottom"
-			, language    : "ko"
-		});
-
-		$('#datepicker').datepicker("setDate", new Date());
-	</script>
 
 	<div style="width:100%; height:400px; margin:20px 0;">
 		<div style="float:left; text-align:center; width:12.5%; height:100%; margin:0 1%">
@@ -343,4 +387,24 @@
 
 	<%@ include file="/WEB-INF/include/bottom.jsp"%>
 </body>
+<%-- date picker --%>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<script src="/js/bootstrap-datepicker.ko.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	$('#datepicker').datepicker({
+		  autoclose   : true
+		, format      : "yyyy-mm"
+		, viewMode    : "months"
+		, minViewMode : "months"
+		, orientation : "right bottom"
+		, language    : "ko"
+	});
+
+	$('#datepicker').datepicker("setDate", new Date());
+</script>
 </html>

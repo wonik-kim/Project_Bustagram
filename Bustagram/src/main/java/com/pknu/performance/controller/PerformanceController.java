@@ -85,15 +85,17 @@ public class PerformanceController {
 		for(int i = 0; i < fullCalendarRegion.size(); i++) {
 			HashMap<String,Object> fullMap = new HashMap<String, Object>();
 			
+			int idx = fullCalendarRegion.get(i).getIdx();
 			String title = fullCalendarRegion.get(i).getSchedule_date().substring(11) + ' ' +fullCalendarRegion.get(i).getArt_name();
 			String start = fullCalendarRegion.get(i).getSchedule_date().substring(0, 10);
-			String color = "#A349A4";
+			String color = "black";
 			String backgroundColor ="#00ff0000";
 			
 			fullMap.put("title", title);
 			fullMap.put("start", start);
 			fullMap.put("textColor", color);
 			fullMap.put("color", backgroundColor);
+			fullMap.put("idx", idx);
 
 			scheduleList.add(fullMap);
 		}
