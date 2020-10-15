@@ -35,7 +35,7 @@
 		<form action="/" method="POST" id="formLogin">
 			<table id="tblLogin">
 				<tr>
-					<td><button><a class="aLogin" href="signUp" >회원가입</a></button></td>
+					<td><button><a class="aLogin" href="/signUp" >회원가입</a></button></td>
 				</tr>
 				<tr>
 				
