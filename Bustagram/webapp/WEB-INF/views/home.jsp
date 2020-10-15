@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="/test2">구현 실험 페이지 이동</a>
+	<a href="/test">BUSTAGRAM</a>
 </body>
 </html>

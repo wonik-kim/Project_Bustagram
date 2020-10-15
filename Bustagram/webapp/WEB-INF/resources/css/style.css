@@ -1178,6 +1178,19 @@ header.sticky {
     text-transform: uppercase;
     width: 100%;
 }
+/* add b_search_widget */
+.b_search {
+    display: block;
+    padding: 0% 5% 2% 5%;
+    font-size : 14px;
+    font-weight: bold;
+}
+
+.b_search_form, .b_search_input {
+    width: 100%;
+}
+
+/* end b_search_widget */
 
 .sidebar .widget-title::before {
     bottom: 0;
@@ -1399,6 +1412,13 @@ form button {
 .post-meta > img {
     float: left;
     width: 100%;
+}
+
+/* add .post-meta */
+.post-meta > .pds {
+    width: 870px;
+    height: 470px;
+    border: 1px dashed black;
 }
 
 .description {
@@ -2129,8 +2149,7 @@ footer::before {
 }
 
 .widget-title {
-/*     float: left; */
-    float: none;
+    float: left;
     margin-bottom: 35px;
     width: 100%;
 }
@@ -3472,8 +3491,23 @@ a.add-butn {
 .your-page > .profile .profile_pic{
 	width: 150px;
 	height: 150px;
-	border: 1px dashed black;
+	/* border: 1px dashed black; */
 	border-radius: 100%;
+}
+/* add new-postbox */
+.new-postbox > .profile .profile_pic{
+	width: 50px;
+	height: 50px;
+	/* border: 1px dashed black; */
+    border-radius: 100%;
+    margin-right: 30px;
+}
+
+.new-postbox > .profile {
+    display: flex;
+    flex-direction: row;
+	justify-content: center;
+	align-items: center;
 }
 
 .widget > div {
@@ -3558,6 +3592,11 @@ a.add-butn {
     color: #fff;
 }
 
+/* create tab-pane */
+.page-likes {
+    padding: 20px;
+}
+
 .page-likes .tab-content .tab-pane > span {
     font-size: 22px;
     font-style: normal;
@@ -3565,6 +3604,8 @@ a.add-butn {
     text-align: center;
     float: left;
     width: 100%;
+    /* add props */
+    margin-bottom: 10px;
 }
 
 .page-likes .tab-content .tab-pane > span i {
@@ -3577,7 +3618,8 @@ a.add-butn {
     float: left;
     text-align: center;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .users-thumb-list > a {
