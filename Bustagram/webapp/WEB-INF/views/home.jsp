@@ -9,10 +9,8 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/include/top.jsp"%>
+	
 
-	<h1>테스트 home.jsp</h1>
 
-	<%@ include file="/WEB-INF/include/bottom.jsp"%>
 </body>
 </html>
