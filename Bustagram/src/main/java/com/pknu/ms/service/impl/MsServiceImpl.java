@@ -10,7 +10,7 @@ import com.pknu.ms.dao.MsDao;
 import com.pknu.ms.service.MsService;
 import com.pknu.ms.vo.MsVo;
 
-@Service("noticeService")
+@Service("msService")
 public class MsServiceImpl implements MsService {
 
 	@Autowired
@@ -20,7 +20,7 @@ public class MsServiceImpl implements MsService {
 	@Override
 	public List<MsVo> getMusicList(HashMap<String, Object> map) {
 		List<MsVo> list = msDao.getMusicList(map);
-		return null;
+		return list;
 	}
 
 	
