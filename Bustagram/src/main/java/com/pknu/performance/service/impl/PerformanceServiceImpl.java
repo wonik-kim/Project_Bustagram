@@ -29,5 +29,40 @@ public class PerformanceServiceImpl implements PerformanceService {
 		
 		return scheduleRegion;
 	}
+
+	@Override
+	public List<PerformanceVo> scheduleGenre(HashMap<String, Object> map) {
+		List<PerformanceVo> scheduleGenre = performanceDao.scheduleGenre(map);
+		
+		return scheduleGenre;
+	}
+
+	@Override
+	public List<PerformanceVo> scheduleArtist(HashMap<String, Object> map) {
+		List<PerformanceVo> scheduleArtist = performanceDao.scheduleArtist(map);
+		
+		return scheduleArtist;
+	}
+
+	@Override
+	public List<PerformanceVo> schedulePerformance(HashMap<String, Object> map) {
+		List<PerformanceVo> schedulePerformance = performanceDao.schedulePerformance(map);
+		
+		return schedulePerformance;
+	}
+
+	@Override
+	public PerformanceVo scheduleDetail(HashMap<String, Object> map) {
+		PerformanceVo scheduleDetail = performanceDao.scheduleDetail(map);
+		
+		return scheduleDetail;
+	}
+
+	@Override
+	public List<PerformanceVo> fullCalendarRegion(HashMap<String, Object> map) {
+		List<PerformanceVo> fullCalendarRegion = performanceDao.fullCalendarRegion(map);
+		
+		return fullCalendarRegion;
+	}
 	
 }

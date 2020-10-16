@@ -1,0 +1,295 @@
+@charset "UTF-8";
+
+#MP_Wrap 
+	{	position:absolute;
+		width:100%;
+		height:90px;
+		left:0px;
+		background-color: #202020;
+		bottom:0px;
+		position:fixed;
+	}
+	
+	#MB_Div
+	{
+		position:absolute;
+		width: 100%;		
+		height:18px;	
+		background-color : red;
+	}
+	
+
+	
+		 /* ##### reset ###### */
+ #musicBar {
+    -webkit-appearance: none; 
+    overflow: hidden;
+    width : 100%;
+    height: 18px;
+     margin: 0px;
+     padding: 0px;
+     background: transparent;
+    cursor: pointer;
+    background: #4B4B4B;
+    border-radius: 0; /* iOS */
+  }
+
+  #musicBar:focus {
+    outline: none; 
+  }
+
+  #musicBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    top : 0px;
+    width: 0px;
+    height: 18px;
+     margin: 0px;
+     padding: 0px;
+    background: #4B4B4B;
+    box-shadow: -100vw 0 0 100vw #FF1150;
+    border: #4B4B4B;
+    cursor: pointer;
+  }
+  
+  #volumnBar{
+  -webkit-appearance: none; 
+    overflow: hidden;
+    height: 10px;
+     margin: 0px;
+     padding: 0px;
+     background: transparent;
+    cursor: pointer;
+    background: white;
+    border-radius: 0; /* iOS */
+  	
+  }
+  
+  #volumnBar::-webkit-slider-thumb{
+  -webkit-appearance: none;
+    top : 0px;
+    width: 0px;
+    height: 18px;
+     margin: 0px;
+     padding: 0px;
+    background: #4B4B4B;
+    box-shadow: -100vw 0 0 100vw #FF1150;
+    border: #4B4B4B;
+    cursor: pointer;
+  }
+  
+  
+  #sumnail_Div
+  {
+  	position : absolute;
+   background-color: red;
+   width: 60px;
+   height: 60px;
+  	top: 25px;
+  	left: 60px;
+  }
+  
+  #sumnail_Img
+  {
+  	width: 60px;
+  	height: 60px;	
+  }
+  
+  #title_Div
+  {
+  	position : absolute;
+   width: 160px;
+   height: 50px;
+  	top: 35px;
+  	left: 130px;
+  }
+  
+  #title_Div > h1
+  {
+  	font-size : 15px;
+  	color : white;
+  }
+  
+  #title_Div > h2
+  {
+  	font-size : 10px;
+  	color : white;
+  }
+  
+  #like_Div
+  {
+  	position : absolute;
+   	width: 30px;
+    height: 30px;
+  	top: 40px;
+  	left: 260px;
+  }
+  
+  #like_Img
+  {
+  width: 30px;
+  height: 30px;
+  	
+  }
+  
+  
+   #SC_Div
+  {
+  	position : absolute;
+   	width: 30px;
+    height: 30px;
+  	top: 40px;
+  	left: 310px;
+  }
+  
+  #sc_Img
+  {
+  width: 23px;
+  height: 30px;
+  	
+  }
+  
+  #Back15_Div
+  {
+  	position : absolute;
+   	width: 30px;
+    height: 30px;
+  	top: 40px;
+  	left: 800px;
+  }
+  
+  #back15_Img
+  {
+  width: 25px;
+  height: 25px;
+  }
+  
+  #Prev_Div
+  {
+  	position : absolute;
+   	width: 40px;
+    height: 40px;
+  	top: 40px;
+  	left: 860px;
+  }
+  
+  #prev_Img
+  {
+  width: 30px;
+  height: 30px;
+  }
+  
+  #Play_Div
+  {
+  	position : absolute;
+   	width: 40px;
+    height: 40px;
+  	top: 30px;
+  	left: 910px;
+  }
+  
+  #play_Img
+  {
+  width: 50px;
+  height: 50px;
+  }
+  
+  #Next_Div
+  {
+  	position : absolute;
+   	width: 40px;
+    height: 40px;
+  	top: 40px;
+  	left: 975px;
+  }
+  
+  #next_Img
+  {
+  width: 30px;
+  height: 30px;
+  }
+  
+  #Front15_Div
+  {
+  	position : absolute;
+   	width: 30px;
+    height: 30px;
+  	top: 40px;
+  	left: 1040px;
+  }
+  
+  #front15_Img
+  {
+  width: 25px;
+  height: 25px;
+  }
+  
+  #Suffle_Div
+  {
+  	position : absolute;
+   	width: 30px;
+    height: 30px;
+  	top: 40px;
+  	left: 1100px;
+  }
+  
+  #shuffle_Img
+  {
+  width: 25px;
+  height: 25px;
+  }
+  
+  #Repeat_Div
+  {
+  	position : absolute;
+   	width: 30px;
+    height: 30px;
+  	top: 40px;
+  	left: 1160px;
+  }
+  
+  #repeat_Img
+  {
+  width: 25px;
+  height: 25px;
+  }
+  
+  #Time_Div
+  {
+  	position : absolute;
+   	width: 30px;
+    height: 30px;
+  	top: 40px;
+  	left: 1600px;
+  }
+  
+  #Time_Div>p
+  {
+  	font-size : 17px;
+  	color : white;
+  }
+  
+   #Volumn_Div
+  {
+  	position : absolute;
+   	width: 500px;
+    height: 100px;
+  	top: 40px;
+  	left: 1700px;
+  }
+  
+  #volumn_Img
+  {
+  width: 25px;
+  height: 25px;
+  }
+  
+  .buttons
+  {
+  	background-color:transparent;  
+  	border:0;
+  	outline: 0;
+  }
+  .buttons:focus
+  {
+  	outline:none;
+  }

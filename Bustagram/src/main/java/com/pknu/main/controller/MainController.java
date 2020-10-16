@@ -21,20 +21,12 @@ public class MainController {
 		return "Main";
 	}
 	
-	@RequestMapping("login")
+	@RequestMapping("/Main/login_form")
 	public String login() {
-		return "login";
+		return "login_form";
 	}
 	
-	@RequestMapping("find_id")
-	public String find_id() {
-		return "find_id";
-	}
-	
-	@RequestMapping("find_pwd")
-	public String find_pwd() {
-		return "find_pwd";
-	}
+
 
 	
 	

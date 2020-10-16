@@ -3,8 +3,18 @@
 
 <mapper namespace="Performance">
 	<resultMap id="regionList" type="com.pknu.performance.vo.PerformanceVo">
-		<result property="region_id"  column="REGION_ID"  javaType="string" />
-		<result property="region_val" column="REGION_VAL" javaType="string" />
+		<result property="region_id"     column="REGION_ID"     javaType="string" />
+		<result property="region_val"    column="REGION_VAL"    javaType="string" />
+		<result property="gen_id"        column="GEN_ID"        javaType="string" />
+		<result property="gen_val"       column="GEN_VAL"       javaType="string" />
+		<result property="artist_id"     column="ARTIST_ID"     javaType="string" />
+		<result property="art_name"      column="ART_NAME"      javaType="string" />
+		<result property="idx"           column="IDX"           javaType="int" />
+		<result property="schedule_name" column="SCHEDULE_NAME" javaType="string" />
+		<result property="str_id"        column="STR_ID"        javaType="string" />
+		<result property="str_name"      column="STR_NAME"      javaType="string" />
+		<result property="schedule_date" column="SCHEDULE_DATE" javaType="string" />
+		<result property="schedule_info" column="SCHEDULE_INFO" javaType="string" />
 	</resultMap>
 
 	<select id="Region" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
@@ -12,7 +22,36 @@
 	</select>
 	
 	<select id="RegionGugun" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
-		{ CALL PKG_SCHEDULE.PROC_GET_GUGUN(  #{ region_id_sido, mode=IN,  jdbcType=VARCHAR }
+		{ CALL PKG_SCHEDULE.PROC_GET_GUGUN(  #{ region_id_sido, mode=IN, jdbcType=VARCHAR }
 										   , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
+	</select>
+	
+	<select id="Genre" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
+		{ CALL PKG_SCHEDULE.PROC_GET_GENRE(  #{ region_id_sido,  mode=IN, jdbcType=VARCHAR }
+										   , #{ region_id_gugun, mode=IN, jdbcType=VARCHAR }
+										   , #{ schedule_date,   mode=IN, jdbcType=VARCHAR }
+										   , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
+	</select>
+	
+	<select id="Artist" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
+		{ CALL PKG_SCHEDULE.PROC_GET_ARTIST(  #{ region_id_sido,  mode=IN, jdbcType=VARCHAR }
+										    , #{ region_id_gugun, mode=IN, jdbcType=VARCHAR }
+										    , #{ genre_id,        mode=IN, jdbcType=VARCHAR }
+										    , #{ schedule_date,   mode=IN, jdbcType=VARCHAR }
+										    , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
+	</select>
+	
+	<select id="Performance" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
+		{ CALL PKG_SCHEDULE.PROC_GET_PERFORMANCE(  #{ region_id_sido,  mode=IN, jdbcType=VARCHAR }
+										         , #{ region_id_gugun, mode=IN, jdbcType=VARCHAR }
+										         , #{ genre_id,        mode=IN, jdbcType=VARCHAR }
+										         , #{ artist_id,       mode=IN, jdbcType=VARCHAR }
+										         , #{ schedule_date,   mode=IN, jdbcType=VARCHAR }
+										         , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
+	</select>
+	
+	<select id="Detail" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
+		{ CALL PKG_SCHEDULE.PROC_GET_DETAIL(  #{ idx,    mode=IN, jdbcType=INTEGER }
+										    , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
 	</select>
 </mapper>
