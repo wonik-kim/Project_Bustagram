@@ -54,6 +54,18 @@
 		
 		.fc-title { text-align:center; margin:o auto; width:100%; display:block; }
 		.fc-title:hover { font-weight:bold; cursor: pointer; }
+		
+		#btnDetail {
+			width:100px; height:50px;
+			line-height:50px;
+			text-decoration:none;
+			display:block;
+			border:2px solid #F7819F;
+			border-radius:10px;
+			margin:15px auto;
+			color:black;
+			font-weight:bold;	
+		}
 	</style>
 	
 	<script>
@@ -391,6 +403,7 @@
 							html += "<td class='td_detail'>" +data.schedule_info+ "</td>";
 							html += "</tr>";
 							html += "</table>";
+							html += "<a id='btnDetail' href='#'>상세 정보</a>"
 							
 							$('#performance').html(html);
 						}
@@ -433,6 +446,7 @@
 							html += "<td class='td_detail'>" +data.schedule_info+ "</td>";
 							html += "</tr>";
 							html += "</table>";
+							html += "<a id='btnDetail' href='#'>상세 정보</a>"
 							
 							$('#performance').html(html);
 							
