@@ -64,5 +64,19 @@ public class PerformanceServiceImpl implements PerformanceService {
 		
 		return fullCalendarRegion;
 	}
+
+	@Override
+	public List<PerformanceVo> fullCalendarGenre(HashMap<String, Object> map) {
+		List<PerformanceVo> fullCalendarGenre = performanceDao.fullCalendarGenre(map);
+		
+		return fullCalendarGenre;
+	}
+
+	@Override
+	public List<PerformanceVo> fullCalendarArtist(HashMap<String, Object> map) {
+		List<PerformanceVo> fullCalendarArtist = performanceDao.fullCalendarArtist(map);
+		
+		return fullCalendarArtist;
+	}
 	
 }

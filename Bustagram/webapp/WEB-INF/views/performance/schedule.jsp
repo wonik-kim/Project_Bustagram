@@ -147,7 +147,7 @@
 								, success  : function(data) {
 									$.each(data, function(index, item) {
 										events.push({
-											url        : item.idx
+											  url       : item.idx
 											, title     : item.title
 											, start     : item.start
 											, color     : item.color
@@ -184,7 +184,7 @@
 
 						    	$(this).children().children('.fc-title').attr('id', pkValue);
 						    	$(this).removeAttr('href');
-						    	})
+						    });
 						}
 						, error    : function() {
 							alert('error');
@@ -217,6 +217,57 @@
 							
 							$('#artist').html(html);
 							$('#performance').html('');
+							
+							var events = [];
+							
+							$.ajax({
+								  url      : '/FullCalendar/Genre'
+								, data     : {   'region_id_sido' : sido
+									           , 'region_id_gugun' : gugun
+									           , 'genre_id' : genre }
+								, datatype : 'json'
+								, async:false
+								, success  : function(data) {
+									$.each(data, function(index, item) {
+										events.push({
+											  url       : item.idx
+											, title     : item.title
+											, start     : item.start
+											, color     : item.color
+											, textColor : item.textColor
+										});
+									});
+								}
+								, error   : function() {
+									alert("error");
+								}
+							});	
+							
+						    var calendarEl = document.getElementById('calendar');
+						    var calendar = new FullCalendar.Calendar(calendarEl, {
+						      plugins: [ 'interaction', 'dayGrid'],
+						      header: {
+						          left   : ''
+						        , center : 'title'
+						        , right  : ''
+						      },
+						      defaultDate: $('#datepicker').val()+ '-01',
+						      navLinks: false, // can click day/week names to navigate views
+						      businessHours: true, // display business hours
+						      events:events
+						    });
+							
+						    $('#calendar').html('');
+						    
+						    calendar.render();
+						    
+						    $('.fc-day-grid-event').each(function(){
+
+						    	var pkValue =  $(this).attr('href');
+
+						    	$(this).children().children('.fc-title').attr('id', pkValue);
+						    	$(this).removeAttr('href');
+						    });
 						}
 						, error    : function() {
 							alert('error');
@@ -249,6 +300,58 @@
 							});
 							
 							$('#performance').html(html);
+							
+							var events = [];
+							
+							$.ajax({
+								  url      : '/FullCalendar/Artist'
+								, data     : {   'region_id_sido' : sido
+									           , 'region_id_gugun' : gugun
+									           , 'genre_id' : genre
+									           , 'artist_id' : artist }
+								, datatype : 'json'
+								, async:false
+								, success  : function(data) {
+									$.each(data, function(index, item) {
+										events.push({
+											  url       : item.idx
+											, title     : item.title
+											, start     : item.start
+											, color     : item.color
+											, textColor : item.textColor
+										});
+									});
+								}
+								, error   : function() {
+									alert("error");
+								}
+							});	
+							
+						    var calendarEl = document.getElementById('calendar');
+						    var calendar = new FullCalendar.Calendar(calendarEl, {
+						      plugins: [ 'interaction', 'dayGrid'],
+						      header: {
+						          left   : ''
+						        , center : 'title'
+						        , right  : ''
+						      },
+						      defaultDate: $('#datepicker').val()+ '-01',
+						      navLinks: false, // can click day/week names to navigate views
+						      businessHours: true, // display business hours
+						      events:events
+						    });
+							
+						    $('#calendar').html('');
+						    
+						    calendar.render();
+						    
+						    $('.fc-day-grid-event').each(function(){
+
+						    	var pkValue =  $(this).attr('href');
+
+						    	$(this).children().children('.fc-title').attr('id', pkValue);
+						    	$(this).removeAttr('href');
+						    });
 						}
 						, error    : function() {
 							alert('error');
@@ -331,8 +434,6 @@
 							html += "</tr>";
 							html += "</table>";
 							
-							$('#genre').html('');
-							$('#artist').html('');
 							$('#performance').html(html);
 							
 							$('html, body').animate({ scrollTop : 0 }, 400);
