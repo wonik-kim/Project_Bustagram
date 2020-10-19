@@ -21,4 +21,8 @@ public interface PerformanceDao {
 
 	List<PerformanceVo> fullCalendarRegion(HashMap<String, Object> map);
 
+	List<PerformanceVo> fullCalendarGenre(HashMap<String, Object> map);
+
+	List<PerformanceVo> fullCalendarArtist(HashMap<String, Object> map);
+
 }

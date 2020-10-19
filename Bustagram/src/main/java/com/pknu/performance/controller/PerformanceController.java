@@ -77,7 +77,7 @@ public class PerformanceController {
 	@RequestMapping(value="/FullCalendar/Region", method=RequestMethod.GET)
 	@ResponseBody
 	@DateTimeFormat(iso=ISO.DATE)
-	public List<HashMap<String,Object>> fullCalendar(@RequestParam HashMap<String, Object> map) {
+	public List<HashMap<String,Object>> fullCalendarRegion(@RequestParam HashMap<String, Object> map) {
 	
 		List<PerformanceVo> fullCalendarRegion = performanceService.fullCalendarRegion(map);	
 		List<HashMap<String,Object>> scheduleList = new ArrayList<HashMap<String,Object>>();
@@ -85,20 +85,80 @@ public class PerformanceController {
 		for(int i = 0; i < fullCalendarRegion.size(); i++) {
 			HashMap<String,Object> fullMap = new HashMap<String, Object>();
 			
+			int idx = fullCalendarRegion.get(i).getIdx();
 			String title = fullCalendarRegion.get(i).getSchedule_date().substring(11) + ' ' +fullCalendarRegion.get(i).getArt_name();
 			String start = fullCalendarRegion.get(i).getSchedule_date().substring(0, 10);
-			String color = "#A349A4";
+			String color = "black";
 			String backgroundColor ="#00ff0000";
 			
 			fullMap.put("title", title);
 			fullMap.put("start", start);
 			fullMap.put("textColor", color);
 			fullMap.put("color", backgroundColor);
+			fullMap.put("idx", idx);
 
 			scheduleList.add(fullMap);
 		}
 
 		return scheduleList;
-	}	
+	}
+	
+	@RequestMapping(value="/FullCalendar/Genre", method=RequestMethod.GET)
+	@ResponseBody
+	@DateTimeFormat(iso=ISO.DATE)
+	public List<HashMap<String,Object>> fullCalendarGenre(@RequestParam HashMap<String, Object> map) {
+	
+		List<PerformanceVo> fullCalendarGenre = performanceService.fullCalendarGenre(map);	
+		List<HashMap<String,Object>> scheduleList = new ArrayList<HashMap<String,Object>>();
+		
+		for(int i = 0; i < fullCalendarGenre.size(); i++) {
+			HashMap<String,Object> fullMap = new HashMap<String, Object>();
+			
+			int idx = fullCalendarGenre.get(i).getIdx();
+			String title = fullCalendarGenre.get(i).getSchedule_date().substring(11) + ' ' +fullCalendarGenre.get(i).getArt_name();
+			String start = fullCalendarGenre.get(i).getSchedule_date().substring(0, 10);
+			String color = "black";
+			String backgroundColor ="#00ff0000";
+			
+			fullMap.put("title", title);
+			fullMap.put("start", start);
+			fullMap.put("textColor", color);
+			fullMap.put("color", backgroundColor);
+			fullMap.put("idx", idx);
+
+			scheduleList.add(fullMap);
+		}
+
+		return scheduleList;
+	}
+	
+	@RequestMapping(value="/FullCalendar/Artist", method=RequestMethod.GET)
+	@ResponseBody
+	@DateTimeFormat(iso=ISO.DATE)
+	public List<HashMap<String,Object>> fullCalendarArtist(@RequestParam HashMap<String, Object> map) {
+	
+		List<PerformanceVo> fullCalendarArtist = performanceService.fullCalendarArtist(map);	
+		List<HashMap<String,Object>> scheduleList = new ArrayList<HashMap<String,Object>>();
+		
+		for(int i = 0; i < fullCalendarArtist.size(); i++) {
+			HashMap<String,Object> fullMap = new HashMap<String, Object>();
+			
+			int idx = fullCalendarArtist.get(i).getIdx();
+			String title = fullCalendarArtist.get(i).getSchedule_date().substring(11) + ' ' +fullCalendarArtist.get(i).getArt_name();
+			String start = fullCalendarArtist.get(i).getSchedule_date().substring(0, 10);
+			String color = "black";
+			String backgroundColor ="#00ff0000";
+			
+			fullMap.put("title", title);
+			fullMap.put("start", start);
+			fullMap.put("textColor", color);
+			fullMap.put("color", backgroundColor);
+			fullMap.put("idx", idx);
+
+			scheduleList.add(fullMap);
+		}
+
+		return scheduleList;
+	}
 
 }
