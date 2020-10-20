@@ -12,18 +12,26 @@
 		<result property="mem_gen" 		column="MEM_GEN" 	javaType="string" />
 		<result property="mem_mail" 	column="MEM_MAIL" 	javaType="string" />
 		<result property="lvl" 			column="LVL" 		javaType="string" />
-		<result property="delnum" 		column="DELNUM" 	javaType="int" />
+		<result property="mem_delnum" 	column="MEM_DELNUM" javaType="int" />
 		
 	</resultMap>
 
 
 
-	<select id="AdminLogin" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
-		SELECT 	MID, MEM_PWD
+	<select id="UserLogin" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
+		SELECT 	MID, MEM_PWD, MEM_NAME, MEM_BIRTH, MEM_GEN, MEM_MAIL, LVL, MEM_DELNUM
 		FROM 	MEMBERS_TBL
 		WHERE 	MID = #{ mid } 
 		AND		MEM_PWD = #{ mpwd }
 	
+	</select>
+	
+
+
+	<select id="idCheck" statementType="CALLABLE" parameterType="hashmap" resultType="int">
+		
+		SELECT 	MID
+		FROM 	MEMBERS_TBL
 	</select>
 
 </mapper>	
