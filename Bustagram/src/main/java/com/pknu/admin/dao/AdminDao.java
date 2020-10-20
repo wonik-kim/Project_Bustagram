@@ -8,4 +8,6 @@ public interface AdminDao {
 
 	AdminVo adminLogin(HashMap<String, Object> map);
 
+	String idCheck(HashMap<String, Object> map);
+
 }

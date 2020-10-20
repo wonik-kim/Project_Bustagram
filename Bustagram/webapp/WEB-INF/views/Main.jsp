@@ -12,7 +12,6 @@ a:active {text-decoration: none; color: yellow;}
 a:hover {text-decoration: none; color: yellow;}
 </style>
 
-</style>
 </head>
 <body>
 		<%@ include file="/WEB-INF/include/top.jsp"%>
@@ -22,6 +21,5 @@ a:hover {text-decoration: none; color: yellow;}
 			
 			
 		<%@ include file="/WEB-INF/include/bottom.jsp"%>
-</div>
 </body>
 </html>

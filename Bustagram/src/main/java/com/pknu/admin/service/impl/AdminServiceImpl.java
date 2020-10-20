@@ -20,7 +20,17 @@ public class AdminServiceImpl implements AdminService {
 		
 		AdminVo adminVo = adminDao.adminLogin(map);
 		
+		
+		
 		return adminVo;
+	}
+
+	@Override
+	public String idCheck(HashMap<String, Object> map) {
+
+		String idResult = adminDao.idCheck(map);
+		
+		return idResult;
 	}
 
 }

@@ -18,10 +18,18 @@ public class AdminDaoImpl implements AdminDao {
 	@Override
 	public AdminVo adminLogin(HashMap<String, Object> map) {
 		
-		AdminVo adminVo =  sqlSession.selectOne("Admin.AdminLogin", map);
+		AdminVo adminVo =  sqlSession.selectOne("Admin.UserLogin", map);
 		
 		
 		return adminVo;
+	}
+
+	@Override
+	public String idCheck(HashMap<String, Object> map) {
+
+		String idResult = sqlSession.selectOne("Admin.idCheck", map);
+		
+		return idResult;
 	}
 	
 	
