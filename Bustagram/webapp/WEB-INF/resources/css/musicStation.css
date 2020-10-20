@@ -12,16 +12,16 @@ html, body {
 		width:100%;
 		height:100%;
 		position:relative;
-		background-color: blue;
+		
 	}
 	
 
 	#sl_div
 	{
 		width: 100%;
-		height: 5%;
+		height: 6%;
 		position:relative;
-		background-color: green;
+		
 	}
 	
 	
@@ -30,8 +30,7 @@ html, body {
 		width: 30%;
 		height: 70%;
 		position:absolute;
-	    background-color: red;
-		top: 15%;
+		top: 30%;
 		left : 5%;
 	}
 	
@@ -41,3 +40,67 @@ html, body {
 		height: 100%;
 		position:absolute;
 	}
+	
+	#search_btn
+	{
+		width: 20%;
+		height: 100%;
+		position:absolute;
+		left: 80%;
+	}
+	
+	#goList_div
+	{
+		width: 200px;
+		height: 70%;
+		position:absolute;
+		top: 15%;
+		left : 85%;
+	}
+	
+	
+	#goList_div > a
+	{
+		color : black;
+		position:absolute;
+		top: 25%;
+	}
+	
+	#ms_profile_div
+	{
+	  width: 100%;
+	  height: 300px;
+	  background-color:blue;
+	  position:relative;
+	}
+	
+	#profile_Img_div
+	{
+	  width: 300px;
+	  height: 100%;
+	  position:absolute;
+	  left:30%;
+	  background-color:red;	
+	}
+	
+	#profile_Img
+	{
+	  width: 100%;
+	  height: 100%;
+	}
+	
+	#profile_info_div
+	{
+	  width: 500px;
+	  height: 60%;
+	  position:absolute;
+	  left: 850px;
+	  top: 20%;
+	  background-color:red;	
+	}
+	
+	
+	
+	
+	
+	

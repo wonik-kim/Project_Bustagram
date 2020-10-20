@@ -14,11 +14,40 @@
 
 </style>
 
+
+
 <script>
+
+function resizeEvent()
+{
+
+	//width 값을 가져오자
+	var width_size = window.outerWidth;
+	
+	// 800 이하인지 if 문으로 확인 
+	if(width_size <= 1700)
+	{
+		document.getElementById("profile_info_div").style.display = "none";		
+	}
+	
+	else if(width_size > 1700)
+	{
+		document.getElementById("profile_info_div").style.display = "block";		
+	}
+	
+}
 
 
 $(document).ready(function(){
 
+	resizeEvent();
+	
+	$(window).resize(function(){
+		
+		resizeEvent();
+		
+	})
+	
 })
 
 
@@ -45,14 +74,16 @@ Your browser does not support the audio element.
 	<div id = "sl_div">
 		<div id = "search_div">
 			<input id = "search_input" type = "text" name = "search"/>
-			<button id = "search_btn" value = "검색"/>
+			<button id = "search_btn" value = "검색"> </button>
 		</div>
 		
 		<div id = "goList_div">
-			<a>즐겨찾기 리스트로!</a>
+			<a href = "#">즐겨찾기 리스트로!</a>
 		</div>
 		
 	</div>
+	
+	<hr>
 
 	<!-- 뮤직스테이션 프로필 div -->
 	<div id = "ms_profile_div">
@@ -65,20 +96,24 @@ Your browser does not support the audio element.
 		<div id = "profile_info_div">
 			
 			<div id = "profile_title_div">
-				
+				<p>이달의 아티스트<p>
 			</div>
 			
 			<div id = "profile_name_div">
-			
+				<p>이한빛의 뮤직스테이션<p>
 			</div>
 			
 			<div id = "prifile_cont_div">
-			
+				<p>홍대에서 주로 활동하는 버스커입니다! 많이 찾아와 주세요~<p>
 			</div>
 			
 		</div>
 		
 	</div>
+
+
+	<!-- 플레이리스트 -->
+
 
 </div>
 
