@@ -25,12 +25,12 @@ function resizeEvent()
 	var width_size = window.outerWidth;
 	
 	// 800 이하인지 if 문으로 확인 
-	if(width_size <= 1700)
+	if(width_size <= 1500)
 	{
 		document.getElementById("profile_info_div").style.display = "none";		
 	}
 	
-	else if(width_size > 1700)
+	else if(width_size > 1500)
 	{
 		document.getElementById("profile_info_div").style.display = "block";		
 	}
@@ -112,8 +112,35 @@ Your browser does not support the audio element.
 	</div>
 
 
-	<!-- 플레이리스트 -->
-
+	<!-- list -->
+	<div id = "playList_wrap">
+	
+		<div id = "playList_list_div">
+		
+			<div id = "playList_song_div">
+			<table>
+				<tr>
+					<td class = "playList_img_td"><img class = "song_img" alt="no image" src="/img/musicStation/ihb.jpg"></td>
+			</table>
+			
+				<img class = "song_img" alt="no image" src="/img/musicStation/ihb.jpg">
+				<h1>타이틀</h1>
+				<h2>이름</h2>
+			</div>
+		
+		</div>
+		
+		<div id = "playList_img_div">
+			
+		</div>
+	
+		<div id = "playList_cont_div">
+		
+		</div>
+	
+		
+	
+	</div>
 
 </div>
 

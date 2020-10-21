@@ -1,6 +1,7 @@
 package com.pknu.ms.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,24 +29,43 @@ public class MsController {
 		return "musicStation";
 	}
 	
-	@RequestMapping(value = "MS/getList", produces = "application/text; charset=utf8")
-	@ResponseBody 
-	public String MusicList(@RequestParam HashMap<String, Object> map, HttpServletResponse response) throws JsonProcessingException
-	{
-		System.out.println(map);
-		
-	    List<MsVo> list = msService.getMusicList(map);
+	//@RequestMapping(value = "MS/getList", produces = "application/text; charset=utf8")
+	//@ResponseBody 
+	//public Map<String, Object> MusicList(@RequestParam HashMap<String, Object> map, HttpServletResponse response) throws JsonProcessingException
+	//{	
+		//Map<String, Object> map2 = msService.getMusicList(map);
 	    
 		//jackson 라이브러리
 	    //자바 객체를 json으로 만들어주자. 
-	    ObjectMapper mapper = new ObjectMapper();
+	    //ObjectMapper mapper = new ObjectMapper();
 	    
-	    String jsonStr = mapper.writeValueAsString(list);
+	    //String jsonStr = mapper.writeValueAsString(list);
+	    
+	    //System.out.println(jsonStr);
+	    
+		//System.out.println(map2);
+		
+		//return map2;
+	//}
+	
+	@RequestMapping(value = "MS/getList", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public Map<String, Object> MusicList(@RequestParam HashMap<String, Object> map) throws JsonProcessingException
+	{
+		Map<String, Object> map2 = msService.getMusicList(map);
+		
+	    System.out.println("map 두번쨰는 " + map2.get("result"));
+		
+        ObjectMapper mapper = new ObjectMapper();
+	    
+	    String jsonStr = mapper.writeValueAsString(map2.get("result"));
 	    
 	    System.out.println(jsonStr);
 	    
-		
-		return jsonStr;
+	    
+		System.out.println(map2);
+		return map2;
 	}
+	
 	
 }

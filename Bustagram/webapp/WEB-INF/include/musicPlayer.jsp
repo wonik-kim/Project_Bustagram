@@ -88,7 +88,7 @@ function callMusicList() {
 		dataType: 'json',
 		data : {mid:'IHB'},
 		success : function(datas){
-			alert(datas);
+			console.log(datas);
 		},
 		error : function(){
 			alert('err');

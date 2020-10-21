@@ -2,6 +2,7 @@ package com.pknu.ms.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +19,9 @@ public class MsServiceImpl implements MsService {
 	
 
 	@Override
-	public List<MsVo> getMusicList(HashMap<String, Object> map) {
-		List<MsVo> list = msDao.getMusicList(map);
-		return list;
+	public Map<String, Object> getMusicList(HashMap<String, Object> map) {
+		Map<String, Object> map2 = msDao.getMusicList(map);
+		return map2;
 	}
 
 	
