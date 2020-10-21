@@ -11,15 +11,14 @@
 body {font-family: 'Cute Font', cursive;} 
 </style>
 
-
 </head>
 <body>
 	<div>
 	<%@ include file="/WEB-INF/include/top.jsp"%>
 	</div>
-	<div style = "font-size: 50px; text-align: left;">진행 예정 공연</div>
+	<marquee behavior="alternate" scrollamount="10"><div style = "font-size: 50px; text-align: left;">진행 예정 공연</div></marquee>
 	<%@ include file="/WEB-INF/include/concert.jsp"%>
-	<div style = "font-size: 50px; text-align: left;">이달의 떠오르는 버스커</div>
+	<marquee behavior="alternate" scrollamount="10"><div style = "font-size: 50px; text-align: left;">이달의 떠오르는 버스커</div></marquee>
 	<%@ include file="/WEB-INF/include/busker.jsp"%>
 	<div style="width: 50%; float: left;">top10 차트
 		<div>
