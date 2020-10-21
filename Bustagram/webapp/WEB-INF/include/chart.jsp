@@ -84,35 +84,37 @@ $(function () {
     <ul class="tabs">
         <li class="active" rel="tab1">음악</li>
         <li rel="tab2">공연장소</li>
-
     </ul>
     <div class="tab_container">
+    	
+  
         <div id="tab1" class="tab_content">
             <ul>
-                <li><a href="#">어쿠스틱콜라보-너무보고싶어</a>
+            
+                <li><img src = "img/first.png"><a href="#">어쿠스틱콜라보-너무보고싶어</a>
                 </li>
-                <li><a href="#">적재-별보러가자</a>
+                <li><img src = "img/second.png"><a href="#">적재-별보러가자</a>
                 </li>
-                <li><a href="#">서효성-프로젝트 하기싫어</a>
+                <li><img src = "img/third.png"><a href="#">서효성-프로젝트 하기싫어</a>
                 </li>
-                <li><a href="#">스탠딩에그-오래된 노래</a>
+                <li>&nbsp;4&nbsp;&nbsp;<a href="#">스탠딩에그-오래된 노래</a>
                 </li>
-                <li><a href="#">이민성-3대400</a>
+                <li>&nbsp;5&nbsp;&nbsp;<a href="#">이민성-3대400</a>
                 </li>
             </ul>
         </div>
         <!-- #tab1 -->
         <div id="tab2" class="tab_content">
         <ul>
-                <li><a href="#">부경대 용당캠퍼스</a>
+                <li><img src = "img/first.png"><a href="#">부경대 용당캠퍼스</a>
                 </li>
-                <li><a href="#">경성대 건학기념관 운동장</a>
+                <li><img src = "img/second.png"><a href="#">경성대 건학기념관 운동장</a>
                 </li>
-                <li><a href="#">앤시정보기술 3층</a>
+                <li><img src = "img/third.png"><a href="#">앤시정보기술 3층</a>
                 </li>
-                <li><a href="#">센텀 롯데시네마</a>
+                <li>&nbsp;4&nbsp;&nbsp;<a href="#">센텀 롯데시네마</a>
                 </li>
-                <li><a href="#">서면 엔시백화점</a>
+                <li>&nbsp;5&nbsp;&nbsp;<a href="#">서면 엔시백화점</a>
                 </li>
             </ul>
         </div>
