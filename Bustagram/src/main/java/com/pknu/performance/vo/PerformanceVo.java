@@ -8,12 +8,19 @@ public class PerformanceVo {
 	private String region_id_sido;
 	private String region_id_gugun;
 	
+	public String getGen_name() {
+		return gen_name;
+	}
+	public void setGen_name(String gen_name) {
+		this.gen_name = gen_name;
+	}
 	private String gen_id;
 	private String gen_val;
+	private String gen_name;
 	
 	private String artist_id;
 	private String art_name;
-	
+	private String art_intro;
 	private String str_id;
 	private String str_name;
 	
@@ -22,7 +29,50 @@ public class PerformanceVo {
 	private String schedule_info;
 	private String schedule_date;
 	private String schedule_tf;
+	private String file_address;
+	private String str_addr;
+	private String str_type;
+	private String segment_id;
 	
+	
+	public String getArt_intro() {
+		return art_intro;
+	}
+	public void setArt_intro(String art_intro) {
+		this.art_intro = art_intro;
+	}
+	public String getSegment_id() {
+		return segment_id;
+	}
+	public void setSegment_id(String segment_id) {
+		this.segment_id = segment_id;
+	}
+	
+	
+	public String getStr_type() {
+		return str_type;
+	}
+	public void setStr_type(String str_type) {
+		this.str_type = str_type;
+	}
+	public String getStr_addr() {
+		return str_addr;
+	}
+	public void setStr_addr(String str_addr) {
+		this.str_addr = str_addr;
+	}
+	public String getSchedule_tf() {
+		return schedule_tf;
+	}
+	public void setSchedule_tf(String schedule_tf) {
+		this.schedule_tf = schedule_tf;
+	}
+	public String getFile_address() {
+		return file_address;
+	}
+	public void setFile_address(String file_address) {
+		this.file_address = file_address;
+	}
 	public String getRegion_id() {
 		return region_id;
 	}

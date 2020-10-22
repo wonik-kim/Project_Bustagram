@@ -38,19 +38,6 @@ tr, td { border : 1px solid black; padding: 5px; }
 					<th>날짜</th>
 					<th>조회수</th>
 				</tr>
-				<c:forEach var="" items="">
-					<c:choose>
-						<c:when>
-							<tr>
-								<td>${ }</td>
-								<td>${ }</td>
-								<td>${ }</td>
-								<td>${ }</td>
-								<td>${ }</td>
-								<td>${ }</td>
-							</tr>
-						</c:when>
-					</c:choose>
 				
 			</table>
 			

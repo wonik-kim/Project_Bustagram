@@ -78,5 +78,11 @@ public class PerformanceServiceImpl implements PerformanceService {
 		
 		return fullCalendarArtist;
 	}
+
+	@Override
+	public List<PerformanceVo> getPerList(HashMap<String, Object> map) {
+		List<PerformanceVo> getPerList= performanceDao.getPerList(map);
+		return getPerList;
+	}
 	
 }

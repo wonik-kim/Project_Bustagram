@@ -23,7 +23,7 @@ import com.pknu.performance.vo.PerformanceVo;
 public class PerformanceController {
 	
 	@Autowired
-	private PerformanceServiceImpl performanceService;
+	private PerformanceService performanceService;
 
 	@RequestMapping("/Schedule")
 	public ModelAndView schedule_sido(@RequestParam HashMap<String, Object> map) {
@@ -163,11 +163,16 @@ public class PerformanceController {
 		return scheduleList;
 	}
 
-	/* ---------------------------------------------------------------------------------------------------------- 이밑으로 두원이꺼 */
+	/* ---------------------------------------------------------------------------------------------------------- 이밑으로  */
 	
 	@RequestMapping("/performInfo")
-	public String performInfo() {
-		return "/performance/performInfo";
+	public ModelAndView performInfo(@RequestParam HashMap<String, Object> map) {
+		ModelAndView mv = new ModelAndView();
+		map.put("idx", "1");
+		List<PerformanceVo> performList = performanceService.getPerList(map);
+		mv.setViewName("/performance/performInfo");
+		mv.addObject("performance",performList);
+		return mv;
 	}
 	
 	

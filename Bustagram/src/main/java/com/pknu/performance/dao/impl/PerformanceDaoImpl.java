@@ -98,5 +98,12 @@ public class PerformanceDaoImpl implements PerformanceDao {
 		
 		return fullCalendarArtist;
 	}
+
+	public List<PerformanceVo> getPerList(HashMap<String, Object> map) {
+		sqlSession.selectList("Performance.GetPerformance", map);
+		List<PerformanceVo> getPerList = (List<PerformanceVo>) map.get("result");
+		
+		return getPerList;
+	}
 	
 }

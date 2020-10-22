@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +66,15 @@
 				<div class="col-md-8">
 					<div class="card-body">
 						<h5 class="card-title">공연정보</h5>
-						<p class="card-text">어디 어디서 합니다.</p>
+						<p class="card-text">
+						 	공연 이름: <c:out value="${performance[0].schedule_name}"/>
+						</p>
+							<p class="card-text">
+						 	공연 날짜: <c:out value="${performance[0].schedule_date}"/>
+						</p>
+						<p class="card-text">
+						 	공연 내용: <c:out value="${performance[0].schedule_info}"/>
+						</p>
 						<p class="card-text">
 							<small class="text-muted"><button>평가하기</button></small>
 						</p>
@@ -82,14 +91,14 @@
 			<div class="row no-gutters">
 				<div class="col-md-4">
 					<img
-						src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/191215_TVN_%EC%A6%90%EA%B1%B0%EC%9B%80%EC%A0%84_%ED%98%B8%ED%85%94%EB%8D%B8%EB%A3%A8%EB%82%98_%ED%86%A0%ED%81%AC%EC%84%B8%EC%85%98_%EC%95%84%EC%9D%B4%EC%9C%A0_%286%29.jpg/375px-191215_TVN_%EC%A6%90%EA%B1%B0%EC%9B%80%EC%A0%84_%ED%98%B8%ED%85%94%EB%8D%B8%EB%A3%A8%EB%82%98_%ED%86%A0%ED%81%AC%EC%84%B8%EC%85%98_%EC%95%84%EC%9D%B4%EC%9C%A0_%286%29.jpg"
+						src="/upload/1.jpg"
 						class="card-img" alt="가수 사진">
 				</div>
 				<div class="col-md-8">
 					<div class="card-body">
-						<p class="card-text">아티스트명 :</p>
-						<p class="card-text">장르 :</p>
-						<p class="card-text">소개 :</p>
+						<p class="card-text">아티스트명: <c:out value="${performance[0].art_name}"/></p>
+						<p class="card-text">장르 : <c:out value="${performance[0].gen_name}"/></p>
+						<p class="card-text">소개 : <c:out value="${performance[0].art_intro}"/></p>
 					</div>
 				</div>
 			</div>
@@ -116,11 +125,11 @@
 						class="card-img" alt="공연장 사진">
 				</div>
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-8">333
 				<div class="card-body">
-					<p class="card-text">공연장 이름 :</p>
-					<p class="card-text">공연장 주소 :</p>
-					<p class="card-text">업종 구분 :</p>
+					<p class="card-text">공연장 이름 : <c:out value="${performance[0].str_name}"/></p>
+					<p class="card-text">공연장 주소 :<c:out value="${performance[0].str_addr}"/></p>
+					<p class="card-text">업종 구분 :  <c:out value="${performance[0].str_type}"/></p>
 				</div>
 			</div>
 		</div>

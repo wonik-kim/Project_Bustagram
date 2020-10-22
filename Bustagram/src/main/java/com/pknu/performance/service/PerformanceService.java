@@ -24,5 +24,6 @@ public interface PerformanceService {
 	List<PerformanceVo> fullCalendarGenre(HashMap<String, Object> map);
 
 	List<PerformanceVo> fullCalendarArtist(HashMap<String, Object> map);
+	List<PerformanceVo> getPerList(HashMap<String, Object> map);
 
 }

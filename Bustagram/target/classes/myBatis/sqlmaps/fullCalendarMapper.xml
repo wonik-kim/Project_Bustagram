@@ -22,19 +22,4 @@
 										   			  , #{ region_id_gugun, mode=IN, jdbcType=VARCHAR }
 										   			  , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=fullCalendar }) }
 	</select>
-	
-	<select id="Genre" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
-		{ CALL PKG_SCHEDULE.PROC_FULL_CALENDAR_GENRE(  #{ region_id_sido,  mode=IN, jdbcType=VARCHAR }
-										   			 , #{ region_id_gugun, mode=IN, jdbcType=VARCHAR }
-										   			 , #{ genre_id, mode=IN, jdbcType=VARCHAR }
-										   			 , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=fullCalendar }) }
-	</select>
-	
-	<select id="Artist" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
-		{ CALL PKG_SCHEDULE.PROC_FULL_CALENDAR_ARTIST(  #{ region_id_sido,  mode=IN, jdbcType=VARCHAR }
-										   			  , #{ region_id_gugun, mode=IN, jdbcType=VARCHAR }
-										   			  , #{ genre_id, mode=IN, jdbcType=VARCHAR }
-										   			  , #{ artist_id, mode=IN, jdbcType=VARCHAR }
-										   			  , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=fullCalendar }) }
-	</select>
 </mapper>

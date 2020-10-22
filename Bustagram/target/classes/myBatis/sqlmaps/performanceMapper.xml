@@ -7,14 +7,21 @@
 		<result property="region_val"    column="REGION_VAL"    javaType="string" />
 		<result property="gen_id"        column="GEN_ID"        javaType="string" />
 		<result property="gen_val"       column="GEN_VAL"       javaType="string" />
+		<result property="gen_name"       column="GEN_NAME"       javaType="string" />
 		<result property="artist_id"     column="ARTIST_ID"     javaType="string" />
 		<result property="art_name"      column="ART_NAME"      javaType="string" />
+		<result property="art_intro"      column="ART_INTRO"      javaType="string" />
+		<result property="art_photo"      column="ART_PHOTO"      javaType="string" />
 		<result property="idx"           column="IDX"           javaType="int" />
 		<result property="schedule_name" column="SCHEDULE_NAME" javaType="string" />
 		<result property="str_id"        column="STR_ID"        javaType="string" />
 		<result property="str_name"      column="STR_NAME"      javaType="string" />
+		<result property="str_addr"      column="STR_ADDR"      javaType="string" />
+		<result property="str_type"      column="STR_TYPE"      javaType="string" />
 		<result property="schedule_date" column="SCHEDULE_DATE" javaType="string" />
 		<result property="schedule_info" column="SCHEDULE_INFO" javaType="string" />
+		<result property="segment_id" column="SEGMENT_ID" javaType="string" />
+		<result property="file_address" column="FILE_ADDRESS" javaType="string" />
 	</resultMap>
 
 	<select id="Region" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
@@ -48,10 +55,17 @@
 										         , #{ artist_id,       mode=IN, jdbcType=VARCHAR }
 										         , #{ schedule_date,   mode=IN, jdbcType=VARCHAR }
 										         , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
+										         
 	</select>
 	
 	<select id="Detail" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
 		{ CALL PKG_SCHEDULE.PROC_GET_DETAIL(  #{ idx,    mode=IN, jdbcType=INTEGER }
 										    , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
 	</select>
+	
+	<select id="GetPerformance" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.performance.vo.PerformanceVo">
+		{ CALL PERFORMANCE.PROC_PERFORMANCE_GETCONTENT(  #{ idx,    mode=IN, jdbcType=INTEGER }
+										    			   , #{ result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=regionList }) }
+	</select>
+	
 </mapper>
