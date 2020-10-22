@@ -89,6 +89,8 @@ function callMusicList() {
 		data : {mid:'IHB'},
 		success : function(datas){
 			console.log(datas);
+			alert(datas);
+			alert(datas.result[0].ci);
 		},
 		error : function(){
 			alert('err');

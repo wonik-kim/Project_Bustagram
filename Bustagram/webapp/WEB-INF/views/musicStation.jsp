@@ -123,7 +123,7 @@ Your browser does not support the audio element.
 					<td class = "playList_img_td"><img class = "song_img" alt="no image" src="/img/musicStation/ihb.jpg"></td>
 			</table>
 			
-				<img class = "song_img" alt="no image" src="/img/musicStation/ihb.jpg">
+				<img class = "song_img" alt="no image" src="/upload/img/ihb.jpg">
 				<h1>타이틀</h1>
 				<h2>이름</h2>
 			</div>

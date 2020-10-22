@@ -48,7 +48,7 @@ public class MsController {
 		//return map2;
 	//}
 	
-	@RequestMapping(value = "MS/getList", produces = "application/text; charset=utf8")
+	@RequestMapping(value = "MS/getList", produces = "application/json; charset=utf8")
 	@ResponseBody
 	public Map<String, Object> MusicList(@RequestParam HashMap<String, Object> map) throws JsonProcessingException
 	{
@@ -56,11 +56,11 @@ public class MsController {
 		
 	    System.out.println("map 두번쨰는 " + map2.get("result"));
 		
-        ObjectMapper mapper = new ObjectMapper();
+        //ObjectMapper mapper = new ObjectMapper();
 	    
-	    String jsonStr = mapper.writeValueAsString(map2.get("result"));
+	    //String jsonStr = mapper.writeValueAsString(map2.get("result"));
 	    
-	    System.out.println(jsonStr);
+	    //System.out.println(jsonStr);
 	    
 	    
 		System.out.println(map2);
