@@ -44,11 +44,6 @@ public class PerformanceController {
 		return scheduleRegion;
 	}
 	
-	@RequestMapping("/performInfo")
-	public String performInfo() {
-		return "/performance/performInfo";
-	}
-	
 	@RequestMapping("/Schedule/Genre")
 	@ResponseBody
 	public List<PerformanceVo> schedule_genre(@RequestParam HashMap<String, Object> map) {
@@ -110,4 +105,13 @@ public class PerformanceController {
 		return scheduleList;
 	}	
 
+	/* ---------------------------------------------------------------------------------------------------------- 이밑으로 두원이꺼 */
+	
+	@RequestMapping("/performInfo")
+	public String performInfo() {
+		return "/performance/performInfo";
+	}
+	
+	
+	
 }

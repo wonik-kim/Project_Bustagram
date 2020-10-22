@@ -22,14 +22,7 @@ public class PerformanceVo {
 	private String schedule_info;
 	private String schedule_date;
 	private String schedule_tf;
-	private String idx;
 	
-	public String getIdx() {
-		return idx;
-	}
-	public void setIdx(String idx) {
-		this.idx = idx;
-	}
 	public String getRegion_id() {
 		return region_id;
 	}
