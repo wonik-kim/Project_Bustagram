@@ -20,7 +20,7 @@ public class MsController {
 	
 	@RequestMapping("/ms")
 	public String musicStation() {
-		return "music_station";
+		return "musicStation";
 	}
 	
 	@RequestMapping(value = "MS/getList", produces = "application/text; charset=utf8")

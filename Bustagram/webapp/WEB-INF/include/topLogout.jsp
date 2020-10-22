@@ -33,11 +33,24 @@
 			<a href="/"><img style="margin:10px 50px;" src="/img/bustagram_logo_kor.png" alt="로고"/></a>
 		</div>
 		<form action="/" method="POST" id="formLogin">
-			<a href="/Master/logout">로그아웃</a>
+			<a href="/Admin/logout">로그아웃</a>
 		</form>
 	</div>
 	<nav class="navbar navbar-expand-sm sticky-top" style="border-bottom:3px solid #F7819F;">
-
+		<ul class="navbar-nav">
+			<li class="navbar-item">
+				<a class="nav-link" href="#">버스타그램</a>
+			</li>
+			<li class="navbar-item">
+				<a class="nav-link" href="#">공연장소 및 일정</a>
+			</li>
+			<li class="navbar-item">
+				<a class="nav-link" href="#">커뮤니티</a>
+			</li>
+			<li class="navbar-item">
+				<a class="nav-link" href="#">마이페이지</a>
+			</li>
+		</ul>
 	</nav>
 </body>
 </html>
