@@ -29,24 +29,6 @@ public class MsController {
 		return "musicStation";
 	}
 	
-	//@RequestMapping(value = "MS/getList", produces = "application/text; charset=utf8")
-	//@ResponseBody 
-	//public Map<String, Object> MusicList(@RequestParam HashMap<String, Object> map, HttpServletResponse response) throws JsonProcessingException
-	//{	
-		//Map<String, Object> map2 = msService.getMusicList(map);
-	    
-		//jackson 라이브러리
-	    //자바 객체를 json으로 만들어주자. 
-	    //ObjectMapper mapper = new ObjectMapper();
-	    
-	    //String jsonStr = mapper.writeValueAsString(list);
-	    
-	    //System.out.println(jsonStr);
-	    
-		//System.out.println(map2);
-		
-		//return map2;
-	//}
 	
 	@RequestMapping(value = "MS/getList", produces = "application/json; charset=utf8")
 	@ResponseBody
@@ -62,9 +44,10 @@ public class MsController {
 	    
 	    //System.out.println(jsonStr);
 	    
-	    
 		System.out.println(map2);
 		return map2;
+	
+	
 	}
 	
 	

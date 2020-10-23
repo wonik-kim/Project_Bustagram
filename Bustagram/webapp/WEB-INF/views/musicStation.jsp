@@ -111,6 +111,7 @@ Your browser does not support the audio element.
 		
 	</div>
 
+	<hr>
 
 	<!-- list -->
 	<div id = "playList_wrap">
@@ -118,14 +119,44 @@ Your browser does not support the audio element.
 		<div id = "playList_list_div">
 		
 			<div id = "playList_song_div">
-			<table>
+			<table id = "playList_table">
 				<tr>
-					<td class = "playList_img_td"><img class = "song_img" alt="no image" src="/img/musicStation/ihb.jpg"></td>
+					<td class = "playList_img_td"><img class = "song_img" alt="no image" src="/upload/img/ihb.jpg"></td>
+					
+					<td class = "playList_info_td">
+						<h1>타이틀</h1>
+						<h2>가수명</h2>
+					</td>
+					
+					<td class = "palyList_play_td">
+						<img class = "play_img" alt="no image" src="/img/musicStation/play.png">
+					</td>			
+				</tr>	
+				<tr>
+					<td class = "playList_img_td"><img class = "song_img" alt="no image" src="/upload/img/ihb.jpg"></td>
+					
+					<td class = "playList_info_td">
+						<h1>타이틀</h1>
+						<h2>가수명</h2>
+					</td>
+					
+					<td class = "palyList_play_td">
+						<img class = "play_img" alt="no image" src="/img/musicStation/play.png">
+					</td>			
+				</tr>	
+				<tr>
+					<td class = "playList_img_td"><img class = "song_img" alt="no image" src="/upload/img/ihb.jpg"></td>
+					
+					<td class = "playList_info_td">
+						<h1>타이틀</h1>
+						<h2>가수명</h2>
+					</td>
+					
+					<td class = "palyList_play_td">
+						<img class = "play_img" alt="no image" src="/img/musicStation/play.png">
+					</td>			
+				</tr>	
 			</table>
-			
-				<img class = "song_img" alt="no image" src="/upload/img/ihb.jpg">
-				<h1>타이틀</h1>
-				<h2>이름</h2>
 			</div>
 		
 		</div>
