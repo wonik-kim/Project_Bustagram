@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mypage">
+	<resultMap id="MemInfo" type="com.pknu.mypage.vo.MypageVo">
+		<result property="mid" column="" javaType="string" />
+		<result property="mem_pwd" column="" javaType="string" />
+		<result property="mem_name" column="" javaType="string" />
+		<result property="mem_birth" column="" javaType="string" />
+		<result property="mem_gen" column="" javaType="string" />
+		<result property="mem_mail" column="" javaType="string" />
+		<result property="lvl" column="" javaType="string" />
+
+		<result property="art_name" column="" javaType="string" />
+		<result property="art_cnt" column="" javaType="string" />
+		<result property="gen_val" column="" javaType="string" />
+		<result property="art_intro" column="" javaType="string" />
+		<result property="gen_id" column="" javaType="string" />
+		
+		<result property="str_name" column="" javaType="string" />
+		<result property="str_type" column="" javaType="string" />
+		<result property="str_addr1" column="" javaType="string" />
+		<result property="str_addr2" column="" javaType="string" />
+		<result property="str_addr3" column="" javaType="string" />
+		<result property="str_addr1_id" column="" javaType="string" />
+		<result property="str_addr2_id" column="" javaType="string" />
+		<result property="str_bnum" column="" javaType="string" />
+		<result property="str_intro" column="" javaType="string" />
+		
+		<result property="prof_origin_name" column="" javaType="string" />
+		<result property="prof_db_ext" column="" javaType="string" />
+	</resultMap>
+	
+	<resultMap id="GetProf" type="com.pknu.mypage.vo.MypageVo">
+		<result property="prof_origin_name" column="" javaType="string" />
+		<result property="prof_db_name" column=""	javaType="string" />
+		<result property="prof_db_ext"	column=""	javaType="string" />
+		<result property="prof_date" column="" javaType="string" />
+	</resultMap>
+	<resultMap id="GetAddr" type="com.pknu.mypage.vo.MypageVo">
+		<result property="region_id" column="" javaType="string" />
+		<result property="region_val" column="" javaType="string" />
+		<result property="parent_id" column="" javaType="string" />
+	</resultMap>
+	<resultMap id="GetGenre" type="hashMap"></resultMap>
+	
+	
+	
+	<select id="GetMemInfo" resultType="com.pknu.mypage.vo.MypageVo" statementType="CALLABLE">
+		{CALL PKG_MYPAGE.PROC_GET_MEM_INFO(
+				#{mid, mode=IN, jdbcType=VARCHAR, javaType=string}, 
+				#{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=MemInfo}
+		)}
+	</select>
+	
+	<select id="GetProf" resultType="com.pknu.mypage.vo.MypageVo" statementType="CALLABLE">
+		{CALL PKG_MYPAGE.PROC_GET_PROF(
+			#{mid, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=GetProf}
+		)}
+	</select>
+	
+	<insert id="SetProf" parameterType="com.pknu.mypage.vo.MypageVo" statementType="CALLABLE">
+		{CALL PKG_MYPAGE.PROC_SET_PROFILE_IMG(
+			#{mid, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{prof_origin_name, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{mid, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{prof_db_ext, mode=IN, jdbcType=VARCHAR, javaType=string}
+		)}
+	</insert>
+ 
+ 
+	<update id="UpdateMem" parameterType="com.pknu.mypage.vo.MypageVo" statementType="CALLABLE">
+		{CALL PKG_MYPAGE.PROC_SET_MEM_INFO(
+			#{mid, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{mem_name, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{mem_pwd, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{mem_birth, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{mem_gen, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{mem_mail, mode=IN, jdbcType=VARCHAR, javaType=string},
+			
+			#{lvl, mode=IN, jdbcType=VARCHAR, javaType=string},
+			
+			#{str_name, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_type, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_addr1, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_addr2, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_addr3, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_intro, mode=IN, jdbcType=VARCHAR, javaType=string},
+
+			#{art_name, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{art_cnt, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{gen_id, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{art_intro, mode=IN, jdbcType=VARCHAR, javaType=string}
+		)}
+	</update>
+	
+	<select id="CheckPwd" parameterType="com.pknu.mypage.vo.MypageVo" statementType="CALLABLE">
+		{CALL PKG_MYPAGE.PROC_CHECK_PWD(
+			#{mid, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{mem_pwd, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{result, mode=OUT, jdbcType=NUMERIC, javaType=java.lang.Integer}
+		)}
+	</select>
+	
+	<select id="GetGenre" resultMap="GetGenre" statementType="CALLABLE">
+		{CALL PKG_MYPAGE.PROC_GET_GENRE(
+			#{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=GetGenre}
+		)}
+		
+	</select>
+	
+	<select id="GetAddr" resultType="com.pknu.mypage.vo.MypageVo"  statementType="CALLABLE">
+		{CALL PKG_MYPAGE.PROC_GET_ADDR(
+			#{region_lvl, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{parent_id, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=GetAddr}
+		)}
+	</select>
+	
+	<insert id="MemUpgrade" parameterType="com.pknu.mypage.vo.MypageVo" statementType="CALLABLE">
+		{CALL PKG_MYPAGE.PROC_SET_UPGRADE(
+			#{mid, mode=IN, jdbcType=VARCHAR, javaType=string},
+			
+			#{art_name, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{art_cnt, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{gen_id, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{art_intro, mode=IN, jdbcType=VARCHAR, javaType=string},
+			
+			#{str_name, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_type, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_addr1, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_addr2, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_addr3, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_bnum, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{str_intro, mode=IN, jdbcType=VARCHAR, javaType=string},
+			#{flag, mode=OUT, jdbcType=VARCHAR, javaType=string}
+		)}
+	</insert>
+
+</mapper>

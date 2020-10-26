@@ -10,7 +10,6 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/include/common.jsp"%>
-
 	<h1>테스트 home.jsp</h1>
 </body>
 </html>
