@@ -32,6 +32,7 @@
 		<div id="divLogo" style="width:65%; height:150px;">
 			<a href="/"><img style="margin:10px 50px;" src="/img/bustagram_logo_kor.png" alt="로고"/></a>
 		</div>
+<<<<<<< HEAD
 		<form action="/" method="POST" id="formLogin">
 			<table id="tblLogin">
 				<tr>
@@ -44,6 +45,8 @@
 
 			</table>
 		</form>
+=======
+>>>>>>> MinSeong_Branch
 	</div>
 	<nav class="navbar navbar-expand-sm sticky-top" style="border:3px solid white; border-bottom:3px solid #F7819F;">
 		<ul class="navbar-nav">
@@ -56,8 +59,13 @@
 			<li class="navbar-item" id="main-menu">
 				<a class="nav-link" href="#">커뮤니티</a>
 			</li>
+<<<<<<< HEAD
 			<li class="navbar-item" id="main-menu">
 				<a class="nav-link" href="#">마이페이지</a>
+=======
+			<li class="navbar-item">
+				<a class="nav-link" href="/Mypage/MemInfo?mid=${ login.mid }">마이페이지</a>
+>>>>>>> MinSeong_Branch
 			</li>
 		</ul>
 	</nav>

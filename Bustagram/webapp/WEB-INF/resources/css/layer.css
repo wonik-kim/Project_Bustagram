@@ -1,0 +1,229 @@
+@charset "UTF-8";
+
+	#msg {
+		color : red;
+	}
+	.page-wrapper {
+	  width: 100%;
+	  height: 100%;
+	  background: rgba(0,0,0,0.4);
+	}
+	
+	a, a:hover, a:visited, a:link {
+		text-decoration: none;
+	} 
+	
+	a.btn2 {
+	  width: 200px;
+	  padding: 18px 0;
+	  position: absolute;
+	  top: 50%; 
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	  font-weight: 700;
+	  text-align: center;
+	  text-decoration: none;
+	  text-transform: uppercase;
+	  color: #fff;
+	  border-radius: 0;
+	  background: #e2525c;
+	}
+	
+	.modal-wrapper{
+	  width: 100%;
+	  height: 100%;
+	  position: fixed;
+	  top: 0; 
+	  left: 0;
+	  background: rgba(0, 0, 0, 0.4);
+	  visibility: hidden;
+	  opacity: 0;
+	  transition: all 0.25s ease-in-out;
+	  text-align:center;
+	}
+	
+	.modal-wrapper.open {
+	  opacity: 1;
+	  visibility: visible;
+	}
+	
+	.modal {
+	  width: 300px;
+	  height: 250px;
+	  display: block;
+	  margin: 0 auto;
+	  position: relative;
+	  top: 50%; 
+	  background: white;
+	  opacity: 0;
+	  transition: all 0.5s ease-in-out;
+	}
+	
+	.modal-wrapper.open .modal {
+	  margin-top: -200px;
+	  opacity: 0.5;
+	}
+	
+	.modal .head {
+	  width: 80%;
+	  height: 15px;
+	  padding: 12px 30px;
+	  overflow: hidden;
+	  background: #e2525c;
+	}
+	
+	.btn-close {
+	  font-size: 15px;
+	  color: white;
+	  text-decoration:none;
+	  background-color: #F7819F;
+	  border-radius : 20%;
+	  border : 1px solid #F8899E;
+	}
+	
+	.content {
+	  padding: 10%;
+	}
+	
+	.good-job {
+	  text-align: center;
+	  font-family: 'Montserrat', Arial,       Helvetica, sans-serif;
+	  color: #e2525c;
+	}
+	.good-job .fa-thumbs-o-up {
+	  font-size: 15px;
+	}
+	.good-job h1 {
+	  font-size: 15px;
+	}
+	
+	
+/* 	---------------- -------------- -------------- ------------*/
+.layer-wrap {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+.layer-wrap .layer-outer {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.layer-wrap .layer-inner {
+    display: table-cell;
+    text-align: center;
+    /* 가로 중앙 정렬*/
+    vertical-align: middle;
+    /* 세로 중앙 정렬 */
+}
+
+.layer-wrap .layer-pop {
+    display: inline-block;
+}
+
+.layer-wrap .layer-box {
+    padding: 36px 40px;
+    width : 500px;
+    height : 400px;
+	overflow-y : scroll;
+	overflow-x : hidden;
+    background-color: rgba(245, 245, 239, 0.8);
+    border: 1px solid #8c8c8c;
+    z-index: 10;
+}
+
+.layer-wrap .layer-bar {
+	background-color : rgba(213, 128, 188, 0.8);
+	border-radius : 10;
+ 	border: 1px solid #8c8c8c;
+    width : 500px;
+    height :  50px;
+    padding : 15px;
+}
+
+.tbar {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.bbar {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.layer-wrap .btn_area {
+    display: block;
+    margin-top: 22px;
+}
+
+.layer-wrap .btn_area .btn {
+    display: inline-block;
+    min-width: 154px;
+    height: 49px;
+    font-size: 16px;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #a7afb7;
+    border-radius: 3px;
+    line-height: 49px;
+    vertical-align: top;
+}
+
+
+/* dimmed 처리는 선택적으로 사용 */
+
+.layer-wrap .dimmed {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #000;
+    opacity: .3;
+    filter: alpha(opacity=30);
+    z-index: -1;
+}
+
+.dimmed {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .3;
+    filter: alpha(opacity=30);
+    z-index: 101;
+}
+
+#close_area {
+	position:relative;
+	display : inline;
+	align : center;
+	background-color:white;
+	border-radius : 10%;
+	padding : 8px;
+	color : black;
+}
+
+#close_upgrade_frm {
+	color : black;
+}
+
+.layer-box  table {
+	width : 400px;
+}
+.layer-box  table th{
+	width : 30%;
+}
+.layer-box  table td{
+	width : 70%;
+}

@@ -9,8 +9,13 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
 	
 
 
+=======
+	<%@ include file="/WEB-INF/include/common.jsp"%>
+	<h1>테스트 home.jsp</h1>
+>>>>>>> MinSeong_Branch
 </body>
 </html>
