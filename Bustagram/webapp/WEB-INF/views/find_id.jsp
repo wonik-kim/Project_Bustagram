@@ -53,7 +53,7 @@
 </script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/include/topLogin.jsp"%>
+	<%@ include file="/WEB-INF/include/top.jsp"%>
 	<div class="login_tab">
 	
 		<form action="" method="POST" id="findId">

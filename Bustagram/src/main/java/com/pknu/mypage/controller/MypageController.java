@@ -54,6 +54,7 @@ public class MypageController {
 		mv.addObject("birth", birth);
 		mv.addObject("getMemInfo", getMemInfo);
 		mv.addObject("getProf", getProf);
+		System.out.println(getMemInfo);
 		mv.setViewName("mypage/user");
 		
 		return mv;
@@ -98,7 +99,6 @@ public class MypageController {
 		
 		mypageService.updateMem(map);
 		ModelAndView mv = new ModelAndView();
-		System.out.println("컨트롤러" + map);
 		mv.setViewName("redirect:/Mypage/MemInfo?mid=" + map.get("mid"));
 		return mv;
 	}

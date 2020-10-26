@@ -18,11 +18,11 @@
 	<mvc:resources location="/WEB-INF/resources/css/" mapping="/css/**" />
     <mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**" />
     <mvc:resources location="/WEB-INF/resources/img/" mapping="/img/**" />
-<<<<<<< HEAD
+
 	<mvc:resources location="/WEB-INF/resources/music/" mapping="/music/**" />
-=======
+
     <mvc:resources location="/upload/" mapping="/upload/**" />
->>>>>>> MinSeong_Branch
+
 	
 	
 	<bean id="viewResolver" 

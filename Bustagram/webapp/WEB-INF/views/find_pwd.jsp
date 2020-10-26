@@ -55,7 +55,7 @@
 </script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/include/topLogin.jsp"%>
+	<%@ include file="/WEB-INF/include/top.jsp"%>
 	<form action="" method="POST" id="findPwd">
 		<table class="login_tab">
 		

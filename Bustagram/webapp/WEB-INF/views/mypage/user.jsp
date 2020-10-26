@@ -236,7 +236,7 @@
 </script>
 
 <body>
-	<%@ include file="/WEB-INF/include/common.jsp"%>
+	<%@ include file="/WEB-INF/include/top.jsp"%>
 			
 <!-- 	<div id="layer" style="display:none;"> -->
 	
@@ -301,8 +301,8 @@
 							<c:choose>
 								<c:when test="${ getMemInfo[0].lvl eq 'P' }"> 가게 </c:when>
 								<c:when test="${ getMemInfo[0].lvl eq 'A' }"> 아티스트 </c:when>
-								<c:when test="${ getMemInfo[0].lvl eq 'M' }"> 일반회원</c:when>
-								<c:otherwise> 오류 </c:otherwise>
+								<c:when test="${ getMemInfo[0].lvl eq 'U' }"> 일반회원</c:when>
+								<c:otherwise> 관리자 </c:otherwise>
 							</c:choose>
 						</td>
 					</tr>
@@ -355,7 +355,7 @@
 					</tr>
 				 </table>
 				</c:when> 
-				<c:otherwise>
+				<c:when test="${ getMemInfo[0].lvl eq 'U' }">
 				 <div class="hide">
 					<br /><br />
 					<div id="font" class="font"><h1 class="font">'일반 회원'이십니다.</h1></div>
@@ -369,6 +369,9 @@
  					<a href="#layer" id="memUpgrade" class="atag cursor memUpgrade">신청하기</a>
  					<div id="m_msg"><br></div>
 	 			</div>
+				 </c:when>
+				 <c:otherwise>
+				 	<h1>관리자입니다.(관리자 마이페이지 수정하려면 user.jsp에서 "관리자입니다"를 검색 후 c:otherwise태그 안을 고쳐주시면 됩니다)</h1>
 				 </c:otherwise>
 				</c:choose>
 				<div>

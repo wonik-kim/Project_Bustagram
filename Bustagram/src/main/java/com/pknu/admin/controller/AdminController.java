@@ -25,15 +25,14 @@ public class AdminController {
 	
 	@RequestMapping(value="/Admin/login", method=RequestMethod.POST)
 	public ModelAndView login(HttpSession session, @RequestParam HashMap<String, Object> map) {
-		
 		AdminVo adminVo = adminService.adminLogin(map);
 		
 		ModelAndView mv = new ModelAndView();
 		
 	
-		if(adminVo != null){
-			mv.addObject("/Admin/login", session.getAttribute("/Admin/login"));
-			session.setAttribute("/Admin/login", adminVo);
+		if(adminVo != null || session.getAttribute("login") != null ){
+			session.setAttribute("login", adminVo);
+			mv.addObject("login", session.getAttribute("login"));
 			
 			switch(adminVo.getLvl()) {
 			case "U" : mv.setViewName("redirect:/MainLogin");
@@ -47,7 +46,6 @@ public class AdminController {
 			default:
 				System.out.println("예외");
 			}
-			
 		
 		} else {
 			mv.setViewName("redirect:/Main/login_form");
@@ -74,7 +72,7 @@ public class AdminController {
 	
 	@RequestMapping("/MainLogin")
 	public String mainLogin() {
-		return "MainLogin";
+		return "Main";
 	}
 	
 	@RequestMapping("/AdminLogin")
@@ -84,12 +82,12 @@ public class AdminController {
 	
 	@RequestMapping("/BusckerLogin")
 	public String busckerLogin() {
-		return "MainLogin";
+		return "Main";
 	}
 	
 	@RequestMapping("/StoreLogin")
 	public String storeLogin() {
-		return "MainLogin";
+		return "Main";
 	}
 
 	@RequestMapping("/PostList")

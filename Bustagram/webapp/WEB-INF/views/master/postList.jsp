@@ -19,47 +19,47 @@ tr, td { border : 1px solid black; padding: 5px; }
 </head>
 <body>
 
-	<%@ include file="/WEB-INF/include/topLogout.jsp"%>
+<%-- 	<%@ include file="/WEB-INF/include/topLogout.jsp"%> --%>
 	
-		<div style="width:100%; height:auto;">
+<!-- 		<div style="width:100%; height:auto;"> -->
 		
-			<br>
+<!-- 			<br> -->
 		
-			<select><option>-</option></select>	<input type="text" /> <button>찾기</button> 
+<!-- 			<select><option>-</option></select>	<input type="text" /> <button>찾기</button>  -->
 		
-			<br>
+<!-- 			<br> -->
 			
-			<table>
-				<tr>
-					<th>글번호</th>
-					<th>커뮤니티</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>날짜</th>
-					<th>조회수</th>
-				</tr>
-				<c:forEach var="" items="">
-					<c:choose>
-						<c:when>
-							<tr>
-								<td>${ }</td>
-								<td>${ }</td>
-								<td>${ }</td>
-								<td>${ }</td>
-								<td>${ }</td>
-								<td>${ }</td>
-							</tr>
-						</c:when>
-					</c:choose>
-				
-			</table>
+<!-- 			<table> -->
+<!-- 				<tr> -->
+<!-- 					<th>글번호</th> -->
+<!-- 					<th>커뮤니티</th> -->
+<!-- 					<th>제목</th> -->
+<!-- 					<th>작성자</th> -->
+<!-- 					<th>날짜</th> -->
+<!-- 					<th>조회수</th> -->
+<!-- 				</tr> -->
+<%-- 				<c:forEach var="" items=""> --%>
+<%-- 					<c:choose> --%>
+<%-- 						<c:when> --%>
+<!-- 							<tr> -->
+<%-- 								<td>${ }</td> --%>
+<%-- 								<td>${ }</td> --%>
+<%-- 								<td>${ }</td> --%>
+<%-- 								<td>${ }</td> --%>
+<%-- 								<td>${ }</td> --%>
+<%-- 								<td>${ }</td> --%>
+<!-- 							</tr> -->
+<%-- 						</c:when> --%>
+<%-- 					</c:choose> --%>
+<%-- 				</c:forEach> --%>
+<!-- 			</table> -->
 			
 			
-		</div>
+<!-- 		</div> -->
 	
-		<br>
+<!-- 		<br> -->
 	
-	<%@ include file="/WEB-INF/include/bottom.jsp"%>
+<%-- 	<%@ include file="/WEB-INF/include/bottom.jsp"%> --%>
 	
 
 </body>

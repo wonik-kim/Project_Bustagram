@@ -46,7 +46,7 @@
 </script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/include/topLogin.jsp"%>
+	<%@ include file="/WEB-INF/include/top.jsp"%>
 
 	<form action="/Admin/login" method="POST" id="loginForm">
 		<table class="login_tab">

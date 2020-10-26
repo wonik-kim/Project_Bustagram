@@ -17,7 +17,7 @@ tr, td { border : 1px solid black; padding: 5px; }
 
 </head>
 <body>
-		<%@ include file="/WEB-INF/include/topLogout.jsp"%>
+		<%@ include file="/WEB-INF/include/top.jsp"%>
 			
 		
 			<div style="width:100%; height:auto;">
