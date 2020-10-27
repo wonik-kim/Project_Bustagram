@@ -8,5 +8,6 @@
 </head>
 <body>
 	<a href="/test">BUSTAGRAM</a>
+	<a href="/post_feed">피드 작성 테스트</a>
 </body>
 </html>

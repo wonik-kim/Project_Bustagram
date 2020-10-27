@@ -1,7 +1,13 @@
 package com.pknu.home.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.pknu.feed.vo.FeedVo;
 
 @Controller
 public class HomeController {
@@ -15,10 +21,4 @@ public class HomeController {
 	public String test() {
 		return "test";
 	}
-	
-	@RequestMapping("/test2")
-	public String test2() {
-		return "test2";
-	}
-	
 }
