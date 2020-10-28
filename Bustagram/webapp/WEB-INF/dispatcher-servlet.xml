@@ -20,9 +20,13 @@
     <mvc:resources location="/WEB-INF/resources/img/" mapping="/img/**" />
 
 	<mvc:resources location="/WEB-INF/resources/music/" mapping="/music/**" />
+<<<<<<< HEAD
 
     <mvc:resources location="/upload/" mapping="/upload/**" />
 
+=======
+	<mvc:resources location="/upload/" mapping="/upload/**" />
+>>>>>>> ask_branch
 	
 	
 	<bean id="viewResolver" 
