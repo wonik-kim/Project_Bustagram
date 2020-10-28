@@ -35,14 +35,11 @@
 		<form action="/" method="POST" id="formLogin">
 			<table id="tblLogin">
 				<tr>
-					<td><a class="aLogin" href="#" >회원가입</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="aLogin" href="#" >ID / PW 찾기</a></td>
+					<td><button><a class="aLogin" href="/signUp" >회원가입</a></button></td>
 				</tr>
 				<tr>
-					<td><input type="text" id="userId" name="userId" placeholder="아이디(이메일)"/></td>
-					<td rowspan="2"><input type="submit" value="로그인"/></td>
-				</tr>
-				<tr>
-					<td><input type="password" id="userPwd" name="userPwd" placeholder="비밀번호"/></td>
+				
+					<td><button><a href="/Main/login_form">로그인</a></button></td>
 				</tr>
 			</table>
 		</form>

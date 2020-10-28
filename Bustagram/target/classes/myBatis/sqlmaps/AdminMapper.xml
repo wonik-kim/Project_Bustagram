@@ -8,7 +8,7 @@
 		<result property="mid" 			column="MID" 		javaType="string" />
 		<result property="mem_pwd" 		column="MEM_PWD" 	javaType="string" />
 		<result property="mem_name" 	column="MEM_NAME" 	javaType="string" />
-		<result property="mem_birth" 	column="MEM_BIRTH" 	javaType="date" />
+		<result property="mem_birth" 	column="MEM_BIRTH" 	javaType="java.sql.Date" />
 		<result property="mem_gen" 		column="MEM_GEN" 	javaType="string" />
 		<result property="mem_mail" 	column="MEM_MAIL" 	javaType="string" />
 		<result property="lvl" 			column="LVL" 		javaType="string" />
@@ -16,7 +16,93 @@
 		
 	</resultMap>
 
+	<resultMap id="postingView" type="com.pknu.admin.vo.AdminVo">
+		<result property="idx" 				column="IDX" 			javaType="int" />
+		<result property="segment_id" 		column="SEGMENT_ID" 	javaType="string" />
+		<result property="commu_title" 		column="COMMU_TITLE" 	javaType="string" />
+		<result property="mid" 				column="MID" 			javaType="string" />
+		<result property="commu_content" 	column="COMMU_CONTENT" 	javaType="string" />
+		<result property="commu_date" 		column="COMMU_DATE" 	javaType="string" />
+		<result property="commu_count" 		column="COMMU_CONTENT" 	javaType="int" />
+		<result property="commu_bnum" 		column="COMMU_BNUM" 	javaType="int" />
+		<result property="commu_lvl" 		column="COMMU_LVL" 		javaType="int" />
+		<result property="commu_delnum" 	column="COMMU_DELNUM" 	javaType="int" />
+	</resultMap>
+	
+	<resultMap id="artistView" type="com.pknu.admin.vo.AdminVo">
+		<result property="idx" 			column="IDX" 		javaType="int" />
+		<result property="artist_id" 	column="ARTIST_ID" 	javaType="string" />
+		<result property="art_name" 	column="ART_NAME" 	javaType="string" />
+		<result property="art_cnt" 		column="ART_CNT" 	javaType="string" />
+		<result property="gen_val" 		column="GEN_VAL" 	javaType="string" />
+		<result property="art_intro" 	column="ART_INTRO" 	javaType="string" />
+		<result property="art_conf" 	column="ART_CONF" 	javaType="string" />
+		<result property="mem_email" 	column="MEM_EMAIL" 	javaType="string" />
+	
+	</resultMap>
+	
+	<resultMap id="storeView" type="com.pknu.admin.vo.AdminVo">
+		<result property="str_id" 			column="STR_ID" 			javaType="string" />
+		<result property="str_name" 		column="STR_NAME" 			javaType="string" />
+		<result property="str_type" 		column="STR_TYPE" 			javaType="string" />
+		<result property="str_addr" 		column="STR_ADDR" 			javaType="string" />
+		<result property="region_id_sido" 	column="REGION_ID_SIDO" 	javaType="string" />
+		<result property="sido" 			column="SIDO" 				javaType="string" />
+		<result property="region_id_gugun" 	column="REGION_ID_GUGUN" 	javaType="string" />
+		<result property="gugun" 			column="GUGUN" 				javaType="string" />
+		<result property="str_bnum" 		column="STR_BNUM" 			javaType="string" />
+		<result property="str_intro" 		column="STR_INTRO" 			javaType="string" />
+		<result property="str_conf" 		column="STR_CONF" 			javaType="string" />
+	</resultMap>
 
+	<resultMap id="blackView" type="com.pknu.admin.vo.AdminVo">
+		<result property="idx" 		column="IDX" 		javaType="int"  />
+		<result property="mid" 		column="MID" 		javaType="string" />
+		<result property="mem_mail" column="MEM_MAIL" 	javaType="string"  />
+		<result property="cause" 	column="CAUSE" 		javaType="string"  />
+	
+	</resultMap>
+	
+	<resultMap id="inquiryView" type="com.pknu.admin.vo.AdminVo">
+		<result property="idx" 			column="IDX" 			javaType="int" />
+		<result property="inq_title" 	column="INQ_TITLE" 		javaType="string" />
+		<result property="mid" 			column="MID" 			javaType="string" />
+		<result property="inq_content" 	column="INQ_CONTENT" 	javaType="string" />
+		<result property="inq_date" 	column="INQ_DATE" 		javaType="java.sql.Date" />
+		<result property="inq_bnum" 	column="INQ_BNUM" 		javaType="int" />
+		<result property="inq_lvl" 		column="INQ_LVL" 		javaType="int" />
+		<result property="inq_delnum" 	column="INQ_DELNUM" 	javaType="int" />
+	</resultMap>
+
+	<resultMap id="scheduleView" type="com.pknu.admin.vo.AdminVo">
+		<result property="idx" 				column="IDX"  				javaType="int" />
+		<result property="art_id" 			column="ART_ID"  			javaType="string" />
+		<result property="str_id" 			column="STR_ID"  			javaType="string" />
+		<result property="schedule_name" 	column="SCHEDULE_NAME"  	javaType="string" />
+		<result property="schedule_date" 	column="SCHEDULE_DATE"  	javaType="java.sql.Date" />
+		<result property="schedule_tf" 		column="SCHEDULE_TF"  		javaType="string" />
+	
+	</resultMap>
+	
+	<resultMap id="warnListView" type="com.pknu.admin.vo.AdminVo">
+		<result property="idx" 		column="IDX" 	javaType="int" />
+		<result property="mid" 		column="MID" 	javaType="string" />
+		<result property="email" 	column="EMAIL" 	javaType="string" />
+		<result property="cause" 	column="CAUSE" 	javaType="string" />
+		<result property="bdate" 	column="BDATE" 	javaType="java.sql.Date" />
+	
+	</resultMap>
+
+	<resultMap id="reportView" type="com.pknu.admin.vo.AdminVo">
+		<result property="idx" 				column="IDX"  			javaType="int" />
+		<result property="segment_id" 		column="SEGMENT_ID"  	javaType="string" />
+		<result property="report_num" 		column="REPORT_NUM"  	javaType="string" />
+		<result property="reporting_mid" 	column="REPORTING_MID"  javaType="string" />
+		<result property="reported_mid" 	column="REPORTED_MID"  	javaType="string" />
+		<result property="cause" 			column="CAUSE"  		javaType="string" />
+		<result property="report_date" 		column="REPORT_DATE"  	javaType="java.sql.Date" />
+	
+	</resultMap>
 
 	<select id="UserLogin" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
 		SELECT 	MID, MEM_PWD, MEM_NAME, MEM_BIRTH, MEM_GEN, MEM_MAIL, LVL, MEM_DELNUM
@@ -25,6 +111,35 @@
 		AND		MEM_PWD = #{ mpwd }
 	
 	</select>
+	
+	<select id="PostList" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
+		{ CALL PKG_ADMIN.PROC_POST_LIST( #{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=postingView}) }
+	</select>
+
+	<select id="MemberList" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
+		{ CALL PKG_ADMIN.PROC_MEMBER_LIST( #{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=memberViewMap}) }
+	</select>
+	
+	<select id="ArtistList" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
+		{ CALL PKG_ADMIN.PROC_ARTIST_LIST( #{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=artistView}) }
+	</select>
+
+	<select id="StoreList" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
+		{ CALL PKG_ADMIN.PROC_STORE_LIST( #{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=storeView}) }
+	</select>
+	
+	<select id="ScheduleList" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
+		{ CALL PKG_ADMIN.PROC_SCHEDULE_LIST( #{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=scheduleView}) }
+	</select>
+	
+	<select id="BlackList" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
+		{ CALL PKG_ADMIN.PROC_BLACK_LIST( #{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=blackView}) }
+	</select>
+	
+	<select id="InquiryList" statementType="CALLABLE" parameterType="hashmap" resultType="com.pknu.admin.vo.AdminVo">
+		{ CALL PKG_ADMIN.PROC_INQUIRY_LIST( #{result, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=inquiryView}) }
+	</select>
+	
 	
 
 

@@ -1,6 +1,7 @@
 package com.pknu.admin.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -56,21 +57,6 @@ public class AdminController {
 		
 	}
 	
-	@RequestMapping(value="/Admin/idCheck", method=RequestMethod.POST)
-	@ResponseBody
-	public String idCheck(@RequestParam HashMap<String, Object> map) {
-		
-		String idResult = adminService.idCheck(map);
-
-		if(idResult != null) {
-			return "-1";
-		} else {
-			System.out.println("null");
-			return "0";
-		}
-		
-		
-	}
 	
 	@RequestMapping("/MainLogin")
 	public String mainLogin() {
@@ -79,7 +65,7 @@ public class AdminController {
 	
 	@RequestMapping("/AdminLogin")
 	public String adminLogin() {
-		return "/master/MainMaster";
+		return "redirect:/AdminList";
 	}
 	
 	@RequestMapping("/BusckerLogin")
@@ -92,10 +78,6 @@ public class AdminController {
 		return "MainLogin";
 	}
 
-	@RequestMapping("/PostList")
-	public String postList() {
-		return "/master/postList";
-	}
 	
 	
 	
@@ -106,5 +88,33 @@ public class AdminController {
 		
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/AdminList")
+	public ModelAndView adminList(@RequestParam HashMap<String, Object> map) {
+		
+		List<AdminVo> listPost = adminService.getListPost(map);
+		List<AdminVo> memberList = adminService.getMemberList(map);
+		List<AdminVo> artistList = adminService.getArtistList(map);
+		List<AdminVo> storeList = adminService.getStoreList(map);
+		List<AdminVo> scheduleList = adminService.getScheduleList(map);
+		List<AdminVo> blackList = adminService.getBlackList(map);
+		List<AdminVo> inquiryList = adminService.getInquiryList(map);
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("listPost", listPost);
+		mv.addObject("memberList", memberList);
+		mv.addObject("artistList", artistList);
+		mv.addObject("storeList", storeList);
+		mv.addObject("scheduleList", scheduleList);
+		mv.addObject("blackList", blackList);
+		mv.addObject("inquiryList", inquiryList);
+		
+		
+		
+		mv.setViewName("/master/MainMaster");
+		
+		return mv;
+	}
+	
 	
 }
